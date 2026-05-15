@@ -28,47 +28,44 @@ O **Mapa do Corre** é uma plataforma web com características de rede social vo
 ---
 
 ## 🏗️ Estrutura do Projeto
-mapa-do-corre/
-│
-├── public/                  # Arquivos estáticos públicos
-│
-├── src/
-│   ├── modules/             # Módulos por funcionalidade
-│   │   ├── admin/           # Painel administrativo
-│   │   │   ├── components/
-│   │   │   ├── hooks/
-│   │   │   ├── pages/
-│   │   │   └── styles/
-│   │   ├── feed/            # Feed de postagens
-│   │   │   ├── components/
-│   │   │   ├── hooks/
-│   │   │   ├── pages/
-│   │   │   └── styles/
-│   │   ├── login/           # Autenticação
-│   │   │   ├── components/
-│   │   │   ├── hooks/
-│   │   │   ├── pages/
-│   │   │   └── styles/
-│   │   └── negocios/        # Listagem de negócios
-│   │       ├── components/
-│   │       ├── hooks/
-│   │       ├── pages/
-│   │       └── styles/
-│   │
-│   ├── shared/              # Componentes reutilizáveis
-│   │   └── components/
-│   │       ├── Header/
-│   │       ├── Navbar/
-│   │       └── Footer/
-│   │
-│   ├── App.jsx
-│   ├── App.css
-│   └── main.jsx
-│
-├── index.html
-├── vite.config.js
-└── package.json
----
+
+```
+📦 mapa-do-corre
+├── 📂 public
+├── 📂 src
+│   ├── 📂 modules
+│   │   ├── 📂 admin          # Painel administrativo
+│   │   │   ├── 📂 components
+│   │   │   ├── 📂 hooks
+│   │   │   ├── 📂 pages
+│   │   │   └── 📂 styles
+│   │   ├── 📂 feed           # Feed de postagens
+│   │   │   ├── 📂 components
+│   │   │   ├── 📂 hooks
+│   │   │   ├── 📂 pages
+│   │   │   └── 📂 styles
+│   │   ├── 📂 login          # Autenticação
+│   │   │   ├── 📂 components
+│   │   │   ├── 📂 hooks
+│   │   │   ├── 📂 pages
+│   │   │   └── 📂 styles
+│   │   └── 📂 negocios       # Listagem de negócios
+│   │       ├── 📂 components
+│   │       ├── 📂 hooks
+│   │       ├── 📂 pages
+│   │       └── 📂 styles
+│   ├── 📂 shared
+│   │   └── 📂 components
+│   │       ├── 📂 Header
+│   │       ├── 📂 Navbar
+│   │       └── 📂 Footer
+│   ├── 📄 App.jsx
+│   ├── 📄 App.css
+│   └── 📄 main.jsx
+├── 📄 index.html
+├── 📄 vite.config.js
+└── 📄 package.json
+```
 
 ## 🛠️ Tecnologias
 
@@ -83,7 +80,7 @@ mapa-do-corre/
 
 ## 🔗 Deploy
 
-> 🚧 Link do projeto: [_em breve_](https://prg04mapadocorrefront.vercel.app/)
+> 🚧 Link do projeto: [Mapa Do Corre](https://prg04mapadocorrefront.vercel.app/)
 
 ---
 
