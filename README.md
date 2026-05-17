@@ -78,6 +78,12 @@ O **Mapa do Corre** é uma plataforma web com características de rede social vo
 
 ---
 
+## 🔗 Repositório Back-end
+
+> [mapa-do-corre (front-end)](https://github.com/raibeep/prg04mapadocorreback)
+
+---
+
 ## 🔗 Deploy
 
 > 🚧 Link do projeto: [Mapa Do Corre](https://prg04mapadocorrefront.vercel.app/)
