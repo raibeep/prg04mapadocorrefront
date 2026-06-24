@@ -1,4 +1,10 @@
 .pagina {
-  margin-left: 200px;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .pagina {
+    margin-left: 200px;
+    padding: 2rem;
+  }
 }
