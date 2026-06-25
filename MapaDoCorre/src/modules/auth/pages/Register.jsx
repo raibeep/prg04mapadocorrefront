@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { register } from "../service/registerService";
 import "../styles/Register.css";
 
 function Register() {
@@ -31,13 +30,6 @@ function Register() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const response = await register({
-            nome: formData.nome,
-            cpf: formData.cpf,
-            telefone: formData.telefone,
-            email,
-            senha: formData.senha
-        });
 
         if (
             !formData.nome ||
@@ -55,16 +47,15 @@ function Register() {
             return;
         }
 
-        try {
-            navigate("/selecionar-perfil", {
-                state: {
-                    usuarioId: response.id
-                }
-            });
-        } catch (error) {
-            console.error(error);
-            setErrorMessage("Erro ao realizar cadastro.");
-        }
+        navigate("/selecionar-perfil", {
+            state: {
+                nome: formData.nome,
+                cpf: formData.cpf,
+                telefone: formData.telefone,
+                email,
+                senha: formData.senha
+            }
+        });
     }
 
     return (

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import clienteImg from "../../../assets/images/cliente.png";
 import empresarioImg from "../../../assets/images/empresa.png";
+import { registerCliente, registerEmpresario } from "../service/registerService";
 import "../styles/SelectProfile.css";
 
 function SelectProfile() {
@@ -10,16 +11,53 @@ function SelectProfile() {
 
     const [perfil, setPerfil] = useState("");
 
-    function handleSubmit() {
+    const location = useLocation();
+
+    const dadosCadastro = location.state;
+
+    async function handleSubmit() {
 
         if (!perfil) return;
 
-        if (perfil === "CLIENTE") {
-            navigate("/feed");
-        }
+        const dadosLimpos = {
+            ...dadosCadastro,
+            cpf: dadosCadastro.cpf.replace(/\D/g, ""),
+            telefone: dadosCadastro.telefone.replace(/\D/g, "")
+        };
 
-        if (perfil === "EMPRESARIO") {
-            navigate("/feed");
+        try {
+
+            let response;
+
+            if (perfil === "CLIENTE") {
+
+                response = await registerCliente(dadosLimpos);
+
+            } else {
+
+                response = await registerEmpresario(dadosLimpos);
+
+            }
+
+            if (!response.ok) {
+
+                const erro = await response.text();
+
+                console.log(erro);
+
+                throw new Error("Erro ao cadastrar");
+            }
+
+            navigate("/login", {
+                state: {
+                    email: dadosCadastro.email
+                }
+            });
+
+        } catch (error) {
+
+            console.error(error);
+
         }
     }
 
@@ -47,9 +85,8 @@ function SelectProfile() {
 
                     <button
                         type="button"
-                        className={`option-card ${
-                            perfil === "CLIENTE" ? "selected" : ""
-                        }`}
+                        className={`option-card ${perfil === "CLIENTE" ? "selected" : ""
+                            }`}
                         onClick={() => setPerfil("CLIENTE")}
                     >
                         <img
@@ -66,9 +103,8 @@ function SelectProfile() {
 
                     <button
                         type="button"
-                        className={`option-card ${
-                            perfil === "EMPRESARIO" ? "selected" : ""
-                        }`}
+                        className={`option-card ${perfil === "EMPRESARIO" ? "selected" : ""
+                            }`}
                         onClick={() => setPerfil("EMPRESARIO")}
                     >
                         <img
