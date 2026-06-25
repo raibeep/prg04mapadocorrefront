@@ -20,7 +20,7 @@ function Hero() {
       </h1>
 
       <div className="hero-bottom">
-        <Link to="/cadastro" className="btn-hero">
+        <Link to="/auth" className="btn-hero">
           Explorar negócios →
         </Link>
       </div>

@@ -1,0 +1,220 @@
+.profile-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    background-image: url("../../../assets/images/cadastro-ilustracao.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: "Inter", sans-serif;
+}
+
+.profile-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    backdrop-filter: blur(2px);
+}
+
+.profile-card {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 95%);
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+
+.profile-brand {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+.profile-brand img {
+    width: 72px;
+    border-radius: 16px;
+}
+
+/* Título */
+
+.profile-title {
+    text-align: center;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 12px;
+}
+
+.profile-subtitle {
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 15px;
+
+    margin-bottom: 40px;
+}
+
+/* Cards */
+
+.profile-options {
+    display: flex;
+    gap: 24px;
+
+    margin-bottom: 32px;
+}
+
+.option-card {
+    flex: 1;
+
+    border: 2px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    background: white;
+
+    padding: 24px;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 320px;
+}
+
+.option-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Card selecionado */
+
+.option-card.selected {
+    border-color: #FB5607;
+
+    box-shadow:
+        0 0 0 4px rgba(251,86,7,.12);
+}
+
+/* Imagem */
+
+.option-card img {
+    width: 160px;
+    height: 160px;
+
+    object-fit: contain;
+
+    margin-bottom: 16px;
+}
+
+/* Título do card */
+
+.option-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 12px;
+}
+
+/* Texto */
+
+.option-card p {
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+/* Botão */
+
+.btn-continuar {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #FB5607;
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.btn-continuar:hover {
+    background: #e24d00;
+}
+
+.btn-continuar:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .profile-card {
+        padding: 24px;
+    }
+
+    .profile-options {
+        flex-direction: column;
+    }
+
+    .option-card {
+        min-height: auto;
+    }
+
+    .option-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-title {
+        font-size: 1.7rem;
+    }
+}

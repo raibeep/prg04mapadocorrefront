@@ -23,11 +23,11 @@ function Header() {
       <nav className="topbar-links">
         <Link to="/">Início</Link>
         <Link to="/sobre">Como funciona</Link>
-        <Link to="/cadastro">Cadastrar negócio</Link>
+        <Link to="/auth">Cadastrar negócio</Link>
       </nav>
 
       <div className="topbar-right">
-        <Link to="/login" className="btn-login-header">Entrar</Link>
+        <Link to="/auth" className="btn-login-header">Entrar</Link>
         <button className="btn-menu" onClick={toggleMenu} aria-label="Abrir menu">
           ☰
         </button>
@@ -38,8 +38,8 @@ function Header() {
         <button type="button" className="meu-close" onClick={closeMenu}>✕</button>
         <Link to="/" onClick={closeMenu}>Início</Link>
         <Link to="/sobre" onClick={closeMenu}>Como funciona</Link>
-        <Link to="/cadastro" onClick={closeMenu}>Cadastrar negócio</Link>
-        <Link to="/login" onClick={closeMenu}>Entrar</Link>
+        <Link to="/auth" onClick={closeMenu}>Cadastrar negócio</Link>
+        <Link to="/auth" onClick={closeMenu}>Entrar</Link>
       </div>
 
     </header>

@@ -1,1 +1,1 @@
-export const API_URL = "http://localhost:8080";
+export const API_URL = "https://prg04mapadocorreback-production.up.railway.app";

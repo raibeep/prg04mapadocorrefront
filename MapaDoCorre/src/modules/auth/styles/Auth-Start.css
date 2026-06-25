@@ -1,4 +1,4 @@
-.login-page {
+.auth-page {
     min-height: 100vh;
 
     display: flex;
@@ -10,29 +10,27 @@
     background-image: url("../../../assets/images/cadastro-ilustracao.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 
     font-family: "Inter", sans-serif;
 }
 
-.login-page::before {
+.auth-page::before {
     content: "";
 
     position: absolute;
     inset: 0;
 
     background: rgba(255, 255, 255, 0.45);
-
     backdrop-filter: blur(2px);
 }
 
-.login-card {
+.auth-card {
     position: relative;
     z-index: 2;
 
     width: min(520px, 90%);
 
-    background: #ffffff;
+    background: white;
 
     border-radius: 24px;
 
@@ -43,90 +41,59 @@
         0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Botão voltar */
-
 .btn-fechar {
     position: absolute;
 
     top: 20px;
     left: 20px;
 
-    color: #111827;
-
     text-decoration: none;
 
+    color: #111827;
+
     font-size: 22px;
-    font-weight: 600;
 }
 
-/* Logo */
-
-.login-brand {
+.auth-brand {
     display: flex;
     justify-content: center;
 
     margin-bottom: 16px;
 }
 
-.login-brand img {
+.auth-brand img {
     width: 72px;
     border-radius: 16px;
 }
 
-/* Título */
-
-.login-titulo {
+.auth-titulo {
     text-align: center;
 
     font-size: 2rem;
     font-weight: 700;
 
-    color: #111827;
-
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-/* Texto auxiliar */
-
-.login-sub {
+.auth-subtitulo {
     text-align: center;
 
     color: #6b7280;
 
     font-size: 14px;
 
-    margin-bottom: 4px;
-}
-
-/* Email */
-
-.login-email {
-    text-align: center;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    color: #111827;
-
     margin-bottom: 32px;
 }
-
-/* Formulário */
 
 .input-field {
     display: flex;
     flex-direction: column;
 
     gap: 8px;
-
-    margin-bottom: 16px;
 }
 
 .input-field label {
-    font-size: 14px;
     font-weight: 500;
-
-    color: #374151;
 }
 
 .input-field input {
@@ -140,9 +107,7 @@
 
     font-size: 15px;
 
-    box-sizing: border-box;
-
-    transition: all 0.2s ease;
+    transition: 0.2s;
 }
 
 .input-field input:focus {
@@ -153,77 +118,21 @@
     box-shadow: 0 0 0 4px rgba(251, 86, 7, 0.12);
 }
 
-/* Esqueceu senha */
-
-.esqueceu-senha {
-    display: inline-block;
-
-    margin-top: 4px;
-    margin-bottom: 8px;
-
-    color: #FB5607;
-
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.esqueceu-senha:hover {
-    text-decoration: underline;
-}
-
-/* Mensagem de erro */
-
-.form-error {
-    text-align: center;
-
-    color: #dc2626;
-
-    font-size: 14px;
-
-    margin-top: 12px;
-}
-
-/* Botão */
-
-.btn-entrar {
+.btn-continuar {
     width: 100%;
-
-    margin-top: 24px;
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 12px;
-
+    padding: 13px;
     background: #FB5607;
-
-    color: white;
-
+    color: #fff;
     font-size: 15px;
     font-weight: 600;
-
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-
-    transition: background 0.2s ease;
+    margin-top: 12px;
+    transition: background 0.2s;
 }
 
-.btn-entrar:hover {
-    background: #e24d00;
-}
-
-/* Mobile */
-
-@media (max-width: 640px) {
-    .login-card {
-        width: 95%;
-
-        padding: 28px 24px;
-    }
-
-    .login-titulo {
-        font-size: 1.7rem;
-    }
+.btn-continuar:hover {
+    background: #e04d00;
 }
