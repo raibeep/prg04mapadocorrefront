@@ -8,192 +8,183 @@
   --text-muted: #717171;
 }
 
-.client-profile-page {
+.empresario-page {
   background-color: var(--color-bg);
   min-height: 100vh;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--text-main);
 }
 
-.client-profile-container {
+.empresario-container {
   max-width: 1080px;
   margin: 0 auto;
   padding: 60px 24px;
 }
 
-.client-profile-section-title {
+.empresario-section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
 }
 
-.client-profile-section-title h2 {
+.empresario-section-title h2 {
   font-size: 32px;
   font-weight: 700;
   color: var(--text-main);
   margin: 0;
 }
 
-.client-edit-btn {
+.empresario-edit-btn {
   background: white;
   border: 1.5px solid #dddddd;
   padding: 10px 20px;
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all .2s ease;
   font-size: 14px;
 }
 
-.client-edit-btn:hover {
-  background-color: #fff;
-  border: 1.5px solid #FB5607;
-  color: #222222;
-  box-shadow: 0 2px 4px rgba(251, 86, 7, 0.2);
+.empresario-edit-btn:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 4px rgba(251, 86, 7, .2);
 }
 
-.client-profile-layout {
+.empresario-layout {
   display: flex;
   gap: 80px;
   align-items: flex-start;
 }
 
-.client-profile-card {
+.empresario-card {
   width: 320px;
   flex-shrink: 0;
   background: var(--color-surface);
   border-radius: 24px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
   padding: 40px 32px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.client-profile-card::before {
-  content: '';
+.empresario-card::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-accent)
+  );
 }
 
-.client-profile-avatar {
+.empresario-avatar {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 24px;
   border: 4px solid var(--color-bg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
-.client-profile-avatar-inicial {
+.empresario-avatar-inicial {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: #FB5607;
+  background: var(--color-primary);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: 700;
   font-size: 56px;
+  font-weight: 700;
   margin: 0 auto 24px;
   border: 4px solid var(--color-bg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
-.client-profile-info h1 {
+.empresario-info h1 {
   font-size: 26px;
-  margin-bottom: 8px;
-  color: var(--text-main);
   font-weight: 700;
+  margin-bottom: 8px;
 }
 
-.client-profile-email {
+.empresario-email {
   font-size: 15px;
   color: var(--text-muted);
   margin-bottom: 8px;
   word-break: break-all;
 }
 
-.client-profile-role {
+.empresario-role {
   display: inline-block;
-  background-color: #f3f3f3;
+  background: #f3f3f3;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-main);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
-.client-profile-sidebar {
+.empresario-sidebar {
   flex: 1;
 }
 
-.client-sidebar-card {
+.empresario-sidebar-card {
   margin-bottom: 48px;
 }
 
-.client-sidebar-card h3 {
+.empresario-sidebar-card h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: var(--text-main);
-  font-weight: 700;
 }
 
-
-.client-profile-bio {
+.empresario-bio {
   font-size: 18px;
   line-height: 1.6;
-  color: var(--text-main);
   margin-bottom: 32px;
 }
 
-.client-sidebar-cta {
+.empresario-sidebar-cta {
   margin-top: 40px;
   border-top: 1px solid #e0e0e0;
+  padding-top: 32px;
 }
 
-.client-sidebar-cta h3 {
+.empresario-sidebar-cta h3 {
   font-size: 20px;
   margin-bottom: 12px;
-  color: var(--text-main);
 }
 
-.client-sidebar-cta p {
-  font-size: 16px;
+.empresario-sidebar-cta p {
   color: var(--text-muted);
-  margin-bottom: 24px;
   line-height: 1.5;
+  margin-bottom: 24px;
 }
 
-.client-sidebar-cta-btn {
-  background-color: var(--color-primary);
+.empresario-sidebar-cta-btn {
+  background: var(--color-primary);
   color: white;
   border: none;
   padding: 14px 28px;
   border-radius: 12px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(251, 86, 7, 0.2);
+  transition: .2s;
 }
 
-.client-sidebar-cta-btn:hover {
+.empresario-sidebar-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(251, 86, 7, 0.3);
-  filter: brightness(1.1);
+  box-shadow: 0 6px 16px rgba(251,86,7,.3);
 }
 
-.client-sidebar-links {
+.empresario-sidebar-links {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -201,7 +192,7 @@
   padding-top: 40px;
 }
 
-.client-sidebar-link {
+.empresario-sidebar-link {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -209,72 +200,66 @@
   color: var(--text-main);
   font-size: 18px;
   font-weight: 500;
-  transition: all 0.2s;
-  padding: 8px 0;
+  transition: .2s;
 }
 
-.client-sidebar-link span {
-  font-size: 24px;
-}
-
-.client-sidebar-link:hover {
+.empresario-sidebar-link:hover {
   color: var(--color-accent);
   transform: translateX(8px);
 }
 
-.client-profile-loading {
+.empresario-loading {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 80vh;
-  background-color: var(--color-bg);
+  background: var(--color-bg);
 }
 
-.client-spinner {
+.empresario-spinner {
   width: 50px;
   height: 50px;
   border: 5px solid #f3f3f3;
   border-top: 5px solid var(--color-primary);
   border-radius: 50%;
-  animation: client-spin 1s linear infinite;
+  animation: empresario-spin 1s linear infinite;
   margin-bottom: 20px;
 }
 
-@keyframes client-spin {
-  0% {
-    transform: rotate(0deg);
+@keyframes empresario-spin {
+  from {
+    transform: rotate(0);
   }
-
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
-@media (max-width: 1024px) {
-  .client-profile-layout {
+@media (max-width:1024px) {
+  .empresario-layout {
     gap: 40px;
   }
 }
 
-@media (max-width: 850px) {
-  .client-profile-layout {
+@media (max-width:850px) {
+  .empresario-layout {
     flex-direction: column;
     align-items: center;
   }
 
-  .client-profile-card {
+  .empresario-card {
     width: 100%;
     max-width: 400px;
   }
 
-  .client-profile-sidebar {
+  .empresario-sidebar {
     width: 100%;
   }
 
-  .client-profile-section-title {
+  .empresario-section-title {
     flex-direction: column;
-    gap: 16px;
     text-align: center;
+    gap: 16px;
   }
 }

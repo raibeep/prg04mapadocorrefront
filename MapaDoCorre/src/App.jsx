@@ -10,6 +10,7 @@ import Home from './modules/home/pages/Home';
 import ProfilePage from './modules/profile/pages/ProfilePage';
 import Dashboard from './modules/empresario/pages/Dashboard';
 import CadastroNegocio from './modules/negocio/pages/CadastroNegocio';
+import EmpresarioPage from './modules/empresario/pages/EmpresarioPage';
 
 function App() {
   return (
@@ -49,6 +50,11 @@ function App() {
           <CadastroNegocio />
         </RotaProtegida>
       } />
+      <Route path="/perfil-empresario" element={
+        <RotaProtegida perfil="EMPRESARIO">
+          <EmpresarioPage />
+        </RotaProtegida>
+      }/>
     </Routes>
   );
 }
