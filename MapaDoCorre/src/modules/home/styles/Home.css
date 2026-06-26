@@ -1,0 +1,19 @@
+body {
+    background: #FFF8EE;
+}
+
+.home-page {
+    min-height: 100vh;
+    background: #FFF8EE;
+}
+
+.home-container {
+    padding: 32px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
