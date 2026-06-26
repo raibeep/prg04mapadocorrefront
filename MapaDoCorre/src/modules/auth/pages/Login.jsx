@@ -21,21 +21,34 @@ function Login() {
         }
 
         try {
-            
             const response = await login(email, senha);
 
-            if(response.ok){
-                navigate("/feed");
-            } else if(response.status === 401){
+            if (response.ok) {
+                const dados = await response.json();
+                localStorage.setItem("token", dados.token);
+                localStorage.setItem("userId", dados.id);
+                localStorage.setItem("tipoPerfil", dados.perfil);
+                localStorage.setItem("perfilId", dados.perfilId);
+                localStorage.setItem("nomeUsuario", dados.nome);
+
+                if (dados.perfil === "CLIENTE") {
+                    localStorage.setItem("clienteId", dados.perfilId);
+                    navigate("/home");
+                } else if (dados.perfil === "EMPRESARIO") {
+                    localStorage.setItem("empresarioId", dados.perfilId);
+                    if (dados.temNegocio) {
+                        navigate("/dashboard");
+                    } else {
+                        navigate("/cadastro-negocio");
+                    }
+                }
+            } else if (response.status === 401) {
                 setErrorMessage("Senha inválida.");
             } else {
                 const mensagem = await response.text();
                 setErrorMessage(mensagem);
             }
-            
-            navigate("/feed");
-
-        } catch(error) {
+        } catch (error) {
             console.error(error);
             setErrorMessage("Erro ao conectar com o servidor.");
         }

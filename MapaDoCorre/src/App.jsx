@@ -1,22 +1,54 @@
 import { Routes, Route } from 'react-router-dom';
+import RotaProtegida from './shared/components/RotaProtegida';
 
 import LandingPage from './modules/landing_page/pages/LandingPage';
 import AuthStart from './modules/auth/pages/AuthStart';
 import Login from './modules/auth/pages/Login';
 import Register from './modules/auth/pages/Register';
 import SelectProfile from './modules/auth/pages/SelectProfile';
-
-import Negocios from './modules/negocios/pages/Negocios';
+import Home from './modules/home/pages/Home';
+import ProfilePage from './modules/profile/pages/ProfilePage';
+import Dashboard from './modules/empresario/pages/Dashboard';
+import CadastroNegocio from './modules/negocio/pages/CadastroNegocio';
 
 function App() {
   return (
     <Routes>
+      {/* Públicas */}
       <Route path="/" element={<LandingPage />} />
       <Route path="/auth" element={<AuthStart />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/negocios" element={<Negocios />} />
-      <Route path='selecionar-perfil' element={<SelectProfile />} />
+      <Route path="/selecionar-perfil" element={<SelectProfile />} />
+
+      {/* Cliente */}
+      <Route path="/home" element={
+        <RotaProtegida perfil="CLIENTE">
+          <Home />
+        </RotaProtegida>
+      } />
+      <Route path="/tela-perfil" element={
+        <RotaProtegida perfil="CLIENTE">
+          <ProfilePage />
+        </RotaProtegida>
+      } />
+      {/*<Route path="/negocios" element={
+        <RotaProtegida perfil="CLIENTE">
+          <Negocios />
+        </RotaProtegida>
+      } />*/}
+
+      {/* Empresário */}
+      <Route path="/dashboard" element={
+        <RotaProtegida perfil="EMPRESARIO">
+          <Dashboard />
+        </RotaProtegida>
+      } />
+      <Route path="/cadastro-negocio" element={
+        <RotaProtegida perfil="EMPRESARIO">
+          <CadastroNegocio />
+        </RotaProtegida>
+      } />
     </Routes>
   );
 }

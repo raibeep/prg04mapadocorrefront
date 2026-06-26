@@ -1,10 +1,10 @@
-import Header from "../../../shared/components/Header/Header";
+import LandingHeader from "../components/LandingHeader";
 import Hero from "../components/Hero";
 
 function LandingPage() {
   return (
     <>
-      <Header />
+      <LandingHeader />
       <Hero />
     </>
   );

@@ -1,7 +1,6 @@
-// src/shared/components/Header/Header.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css';
+import '../styles/landing-header.css';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
