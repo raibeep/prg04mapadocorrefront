@@ -49,7 +49,7 @@ function Dashboard() {
     return (
         <div className="dash-page">
 
-            <AppHeader profileRoute="/tela-perfil-empresario" />
+            <AppHeader profileRoute="/perfil-empresario" />
 
             <main className="dash-main">
 
@@ -116,7 +116,7 @@ function Dashboard() {
                                 <Package size={24} />
                                 <span>Pedidos</span>
                             </div>
-                            <div className="dash-atalho" onClick={() => navigate("/tela-perfil-empresario")}>
+                            <div className="dash-atalho" onClick={() => navigate("/perfil-empresario")}>
                                 <User size={24} />
                                 <span>Meu perfil</span>
                             </div>

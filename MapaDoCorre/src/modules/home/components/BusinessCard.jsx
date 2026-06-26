@@ -5,7 +5,7 @@ function BusinessCard({ negocio }) {
         <article className="business-card">
 
             <img
-                src={negocio.imagem}
+                src={negocio.foto}
                 alt={negocio.nome}
                 className="business-image"
             />
@@ -17,11 +17,15 @@ function BusinessCard({ negocio }) {
                 </h3>
 
                 <span className="business-category">
-                    {negocio.categoria}
+                    {negocio.categoriaNome}
                 </span>
 
-                <p className="business-address">
-                    {negocio.endereco}
+                <p className="business-description">
+                    {negocio.descricao
+                        ? negocio.descricao.length > 90
+                            ? `${negocio.descricao.substring(0, 90)}...`
+                            : negocio.descricao
+                        : "Sem descrição disponível."}
                 </p>
 
             </div>

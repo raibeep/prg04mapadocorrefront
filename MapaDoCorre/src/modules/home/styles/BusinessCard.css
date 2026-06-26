@@ -38,7 +38,7 @@
 .business-name {
     font-size: 1.1rem;
     font-weight: 700;
-
+    font-family: "Inter", sans-serif;
     color: #1f2937;
 
     margin: 0 0 8px;
@@ -61,10 +61,9 @@
     margin-bottom: 12px;
 }
 
-.business-address {
-    font-size: 0.9rem;
-
-    color: #6b7280;
-
-    line-height: 1.4;
+.business-description {
+    margin-top: 7px;
+    color: #5b6271;
+    font-size: 14px;
+    line-height: 1.5;
 }
