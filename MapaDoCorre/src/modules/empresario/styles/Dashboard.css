@@ -1,0 +1,274 @@
+.dash-page {
+    min-height: 100vh;
+    background: #FFFBF0;
+    font-family: "Inter", sans-serif;
+}
+
+
+/* MAIN */
+.dash-main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* SAUDAÇÃO */
+.dash-saudacao {
+    margin-bottom: 32px;
+}
+
+.dash-saudacao h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.dash-saudacao p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* BANNER */
+.dash-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #FB5607, #ff8c42);
+    border-radius: 20px;
+    padding: 32px;
+    color: white;
+    gap: 16px;
+}
+
+.dash-banner-texto h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.dash-banner-texto p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 24px;
+    max-width: 380px;
+    line-height: 1.5;
+}
+
+.dash-banner-btn {
+    background: white;
+    color: #FB5607;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.dash-banner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.dash-banner-icone {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+/* NEGÓCIO */
+.dash-negocio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.dash-negocio-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.dash-editar-btn {
+    background: white;
+    border: 1.5px solid #FB5607;
+    color: #FB5607;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dash-editar-btn:hover {
+    background: #FB5607;
+    color: white;
+}
+
+.dash-negocio-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+}
+
+.dash-negocio-foto {
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.dash-negocio-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dash-negocio-foto-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    font-size: 2.5rem;
+}
+
+.dash-negocio-info {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dash-negocio-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.dash-negocio-tipo {
+    display: inline-block;
+    background: #fff3ee;
+    color: #FB5607;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.dash-negocio-categoria {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.dash-negocio-descricao {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.5;
+    margin: 4px 0;
+}
+
+.dash-negocio-contato {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+/* ATALHOS */
+.dash-atalhos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.dash-atalho {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    transition: .2s;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.dash-atalho:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
+}
+
+.dash-atalho-icone {
+    font-size: 1.8rem;
+}
+
+/* LOADING */
+.dash-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #FFFBF0;
+    gap: 16px;
+    color: #6b7280;
+}
+
+.dash-spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #FB5607;
+    border-radius: 50%;
+    animation: dash-spin 1s linear infinite;
+}
+
+@keyframes dash-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .dash-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dash-negocio-card {
+        flex-direction: column;
+    }
+
+    .dash-negocio-foto {
+        width: 100%;
+        height: 180px;
+    }
+
+    .dash-atalhos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
