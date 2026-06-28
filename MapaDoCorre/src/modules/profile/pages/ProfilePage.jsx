@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import userDefault from "../../../assets/images/user.png";
 import AppHeader from "../../../shared/components/Header/AppHeader";
 import { getPerfil } from "../service/userService";
 import "../styles/Profile.css";
 
 function ProfilePage() {
+    const navigate = useNavigate();
     const [usuario, setUsuario] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -72,7 +74,11 @@ function ProfilePage() {
                             <p className="client-profile-email">{usuario?.email}</p>
                             <p className="client-profile-role">Cliente do Mapa</p>
                         </div>
-                        <button className="client-edit-btn">Editar perfil</button>
+                        <button
+                            className="client-edit-btn"
+                            onClick={() => navigate("/editar-perfil")}>
+                                Editar perfil
+                            </button>
                     </section>
 
                     <aside className="client-profile-sidebar">

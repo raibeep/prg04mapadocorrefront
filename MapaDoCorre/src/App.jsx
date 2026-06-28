@@ -10,7 +10,8 @@ import Home from './modules/home/pages/Home';
 import ProfilePage from './modules/profile/pages/ProfilePage';
 import Dashboard from './modules/empresario/pages/Dashboard';
 import CadastroNegocio from './modules/negocio/pages/CadastroNegocio';
-import EmpresarioPage from './modules/empresario/pages/EmpresarioPage';
+import EmpresarioPage from './modules/empresario/pages/EmpresarioPage'
+import EditProfile from './modules/profile/pages/EditProfile';
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
           <ProfilePage />
         </RotaProtegida>
       } />
+      <Route
+        path="/editar-perfil"
+        element={
+          <RotaProtegida perfil="CLIENTE">
+            <EditProfile />
+          </RotaProtegida>
+        }
+      />
       {/*<Route path="/negocios" element={
         <RotaProtegida perfil="CLIENTE">
           <Negocios />
@@ -55,6 +64,14 @@ function App() {
           <EmpresarioPage />
         </RotaProtegida>
       }/>
+      <Route
+        path="/editar-perfil-empresario"
+        element={
+          <RotaProtegida perfil="EMPRESARIO">
+            <EditProfile />
+          </RotaProtegida>
+        }
+      />
     </Routes>
   );
 }

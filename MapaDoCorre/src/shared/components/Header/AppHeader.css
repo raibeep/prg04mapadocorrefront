@@ -55,23 +55,33 @@
     align-items: center;
 }
 
-.app-avatar {
-    width: 40px;
-    height: 40px;
+.app-avatar,
+.app-avatar-img {
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    background: #FB5607;
+}
+
+.app-avatar {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    background: #ff8a00;
+    color: #fff;
+    font-size: 18px;
     font-weight: 700;
-    font-size: 16px;
     overflow: hidden;
-    flex-shrink: 0;
+    cursor: pointer;
 }
 
-.app-avatar img {
-    width: 100%;
-    height: 100%;
+.app-avatar-img {
     object-fit: cover;
+    border: 2px solid #f2f2f2;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.app-avatar-img:hover,
+.app-avatar:hover {
+    transform: scale(1.05);
 }

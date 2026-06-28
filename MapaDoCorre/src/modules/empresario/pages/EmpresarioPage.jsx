@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AppHeader from "../../../shared/components/Header/AppHeader";
 import { getEmpresario } from "../service/empresarioService";
 import { Star, BriefcaseBusiness, LayoutDashboard } from "lucide-react";
 import "../styles/EmpresarioPage.css";
 
 function EmpresarioPage() {
+    const navigate = useNavigate();
     const [empresario, setEmpresario] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -105,7 +107,8 @@ function EmpresarioPage() {
                             </p>
                         </div>
 
-                        <button className="empresario-edit-btn">
+                        <button className="empresario-edit-btn"
+                            onClick={() => navigate("/editar-perfil-empresario")}>
                             Editar perfil
                         </button>
 

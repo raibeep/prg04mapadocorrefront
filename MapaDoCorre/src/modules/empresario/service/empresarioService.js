@@ -1,15 +1,35 @@
 import { API_URL } from "../../../shared/services/api";
 
-export async function getEmpresario(empresarioId) {
+function getHeaders() {
     const token = localStorage.getItem("token");
-    return await fetch(`${API_URL}/empresarios/findbyid/${empresarioId}`, {
-        headers: { "Authorization": `Bearer ${token}` }
+
+    return {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    };
+}
+
+// Buscar empresário
+export async function getEmpresario(empresarioId) {
+    return fetch(`${API_URL}/empresarios/findbyid/${empresarioId}`, {
+        method: "GET",
+        headers: getHeaders()
     });
 }
 
+// Atualizar empresário
+export async function updateEmpresario(id, dados) {
+    return fetch(`${API_URL}/empresarios/update/${id}`, {
+        method: "PUT",
+        headers: getHeaders(),
+        body: JSON.stringify(dados)
+    });
+}
+
+// Buscar negócio do empresário
 export async function getNegocioDoEmpresario(empresarioId) {
-    const token = localStorage.getItem("token");
-    return await fetch(`${API_URL}/empresarios/${empresarioId}/negocios`, {
-        headers: { "Authorization": `Bearer ${token}` }
+    return fetch(`${API_URL}/empresarios/${empresarioId}/negocios`, {
+        method: "GET",
+        headers: getHeaders()
     });
 }

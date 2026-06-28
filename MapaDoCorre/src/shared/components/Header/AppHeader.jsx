@@ -1,19 +1,67 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import userDefault from "../../../assets/images/user.png";
+import { getPerfil } from "../../../modules/profile/service/userService";
+import { getEmpresario } from "../../../modules/empresario/service/empresarioService";
 import "./AppHeader.css";
 
 function AppHeader({
     showSearch = false,
     onSearch,
-    profileRoute = "/tela-perfil"
+    profileRoute
 }) {
-    const nome = localStorage.getItem("nomeUsuario") || "";
-    const inicial = nome.charAt(0).toUpperCase();
+
+    const tipoPerfil = localStorage.getItem("tipoPerfil");
+
+    const [nome, setNome] = useState(localStorage.getItem("nomeUsuario") || "");
+    const [fotoPerfil, setFotoPerfil] = useState("");
+
+    useEffect(() => {
+        async function carregarUsuario() {
+
+            try {
+
+                let response;
+
+                if (tipoPerfil === "CLIENTE") {
+
+                    response = await getPerfil(localStorage.getItem("userId"));
+
+                } else if (tipoPerfil === "EMPRESARIO") {
+
+                    response = await getEmpresario(localStorage.getItem("perfilId"));
+
+                } else {
+                    return;
+                }
+
+                if (!response.ok) return;
+
+                const dados = await response.json();
+
+                setNome(dados.nome ?? "");
+                setFotoPerfil(dados.fotoPerfil ?? "");
+
+            } catch (error) {
+                console.error("Erro ao carregar usuário:", error);
+            }
+
+        }
+
+        carregarUsuario();
+    }, [tipoPerfil]);
+
+    const inicial = nome?.charAt(0).toUpperCase() || "?";
+
+    const rotaPerfil =
+        profileRoute ||
+        (tipoPerfil === "EMPRESARIO"
+            ? "/perfil-empresario"
+            : "/tela-perfil");
 
     return (
         <header className="app-header">
 
-            <Link to="/home" className="app-logo">
+            <Link to={tipoPerfil === "EMPRESARIO" ? "/dashboard" : "/home"} className="app-logo">
                 <img src="/favicon.png" alt="Mapa do Corre" />
             </Link>
 
@@ -28,10 +76,24 @@ function AppHeader({
                 </div>
             )}
 
-            <Link to={profileRoute} className="profile-link">
-                <div className="app-avatar">
-                    {inicial || <img src={userDefault} alt="Perfil" />}
-                </div>
+            <Link to={rotaPerfil} className="profile-link">
+
+                {fotoPerfil ? (
+
+                    <img
+                        src={fotoPerfil}
+                        alt="Foto de Perfil"
+                        className="app-avatar-img"
+                    />
+
+                ) : (
+
+                    <div className="app-avatar">
+                        {inicial}
+                    </div>
+
+                )}
+
             </Link>
 
         </header>
