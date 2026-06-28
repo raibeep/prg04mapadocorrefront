@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AppHeader from "../../../shared/components/Header/AppHeader";
-
+import { uploadImagem } from "../../../shared/services/uploadService";
 import {
     getPerfil,
     updatePerfil
@@ -102,54 +102,46 @@ function EditProfile() {
 
         setArquivoImagem(file);
 
-        const preview = URL.createObjectURL(file);
-
-        setFormData((current) => ({
+        setFormData(current => ({
             ...current,
-            fotoPerfil: preview
+            fotoPerfil: URL.createObjectURL(file)
         }));
-
     }
-
+    
     async function handleSubmit(event) {
-
         event.preventDefault();
 
         try {
+            let fotoPerfil = formData.fotoPerfil;
 
-            let foto = formData.fotoPerfil;
-
-            // Aqui você coloca sua função de upload
-            // Exemplo:
-            //
-            // if (arquivoImagem) {
-            //     foto = await uploadImagem(arquivoImagem);
-            // }
+            if (arquivoImagem) {
+                fotoPerfil = await uploadImagem(arquivoImagem);
+            }
 
             const body = {
-                ...formData,
-                fotoPerfil: foto
+                nome: formData.nome,
+                telefone: formData.telefone,
+                bio: formData.bio,
+                fotoPerfil
             };
 
             let response;
 
             if (perfil === "CLIENTE") {
-
                 response = await updatePerfil(
                     localStorage.getItem("clienteId"),
                     body
                 );
-
             } else {
                 response = await updateEmpresario(
                     localStorage.getItem("empresarioId"),
                     body
                 );
-
             }
 
-            if (!response.ok)
+            if (!response.ok) {
                 throw new Error("Erro ao salvar alterações.");
+            }
 
             navigate(
                 perfil === "CLIENTE"
@@ -158,12 +150,9 @@ function EditProfile() {
             );
 
         } catch (erro) {
-
             console.error(erro);
             setErrorMessage(erro.message);
-
         }
-
     }
 
     if (loading) {

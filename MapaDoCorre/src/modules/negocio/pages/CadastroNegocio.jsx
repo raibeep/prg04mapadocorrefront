@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { uploadImagem, cadastrarNegocio, getCategorias } from "../service/negocioService";
+import { cadastrarNegocio, getCategorias } from "../service/negocioService";
+import { uploadImagem } from "../../../shared/services/uploadService";
 import "../styles/CadastroNegocio.css";
 
 function CadastroNegocio() {
