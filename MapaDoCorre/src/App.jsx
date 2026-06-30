@@ -12,6 +12,7 @@ import Dashboard from './modules/empresario/pages/Dashboard';
 import CadastroNegocio from './modules/negocio/pages/CadastroNegocio';
 import EmpresarioPage from './modules/empresario/pages/EmpresarioPage'
 import EditProfile from './modules/profile/pages/EditProfile';
+import EditNegocio from "./modules/negocio/pages/EditNegocio";
 
 function App() {
   return (
@@ -63,12 +64,20 @@ function App() {
         <RotaProtegida perfil="EMPRESARIO">
           <EmpresarioPage />
         </RotaProtegida>
-      }/>
+      } />
       <Route
         path="/editar-perfil-empresario"
         element={
           <RotaProtegida perfil="EMPRESARIO">
             <EditProfile />
+          </RotaProtegida>
+        }
+      />
+      <Route
+        path="/editar-negocio/:id"
+        element={
+          <RotaProtegida perfil="EMPRESARIO">
+            <EditNegocio />
           </RotaProtegida>
         }
       />

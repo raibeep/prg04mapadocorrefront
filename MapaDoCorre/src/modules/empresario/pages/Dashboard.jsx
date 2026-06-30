@@ -83,7 +83,7 @@ function Dashboard() {
                             <h2>Meu negócio</h2>
                             <button
                                 className="dash-editar-btn"
-                                onClick={() => navigate("/editar-negocio")}
+                                onClick={() => navigate(`/editar-negocio/${negocio.id}`)}
                             >
                                 <Pencil size={16} />
                                 <span> Editar</span>

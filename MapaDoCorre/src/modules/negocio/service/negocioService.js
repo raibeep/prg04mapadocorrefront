@@ -20,3 +20,26 @@ export async function getCategorias() {
         headers: { "Authorization": `Bearer ${token}` }
     });
 }
+
+export async function getNegocio(id) {
+    const token = localStorage.getItem("token");
+
+    return fetch(`${API_URL}/negocios/findbyid/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+
+export async function updateNegocio(id, negocio) {
+    const token = localStorage.getItem("token");
+
+    return fetch(`${API_URL}/negocios/update/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(negocio)
+    });
+}
