@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import clienteImg from "../../../assets/images/cliente.png";
 import empresarioImg from "../../../assets/images/empresa.png";
@@ -14,6 +14,19 @@ function SelectProfile() {
     const location = useLocation();
 
     const dadosCadastro = location.state;
+
+    useEffect(() => {
+    if (!location.state) {
+        navigate("/auth", { replace: true });
+        return;
+    }
+
+    const { nome, cpf, telefone, email, senha } = location.state;
+
+    if (!nome || !cpf || !telefone || !email || !senha) {
+        navigate("/auth", { replace: true });
+    }
+}, [location.state, navigate]);
 
     async function handleSubmit() {
 

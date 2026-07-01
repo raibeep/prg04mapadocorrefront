@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getPerfil } from "../../../modules/profile/service/userService";
 import { getEmpresario } from "../../../modules/empresario/service/empresarioService";
+import { FiLogOut } from "react-icons/fi";
 import "./AppHeader.css";
 
 function AppHeader({
@@ -9,11 +10,22 @@ function AppHeader({
     onSearch,
     profileRoute
 }) {
+    const navigate = useNavigate();
 
     const tipoPerfil = localStorage.getItem("tipoPerfil");
 
     const [nome, setNome] = useState(localStorage.getItem("nomeUsuario") || "");
     const [fotoPerfil, setFotoPerfil] = useState("");
+
+    function handleLogout() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("tipoPerfil");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("perfilId");
+        localStorage.removeItem("nomeUsuario");
+        navigate("/auth", { replace: true });
+    }
 
     useEffect(() => {
         async function carregarUsuario() {
@@ -95,6 +107,10 @@ function AppHeader({
                 )}
 
             </Link>
+
+            <button className="btn-logout" onClick={handleLogout}>
+                <FiLogOut size={20} />
+            </button>
 
         </header>
     );

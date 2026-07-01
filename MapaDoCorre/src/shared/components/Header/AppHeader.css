@@ -85,3 +85,12 @@
 .app-avatar:hover {
     transform: scale(1.05);
 }
+
+.btn-logout {
+    background: transparent;
+    border: none;
+    color: #ff0000;
+    padding: 2px 16px;
+    cursor: pointer;
+    transition: .2s;
+}

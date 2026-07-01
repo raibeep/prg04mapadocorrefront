@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import "../styles/Register.css";
 
@@ -7,6 +7,12 @@ function Register() {
     const location = useLocation();
 
     const email = location.state?.email || "";
+
+    useEffect(() => {
+        if (!location.state?.email) {
+            navigate("/auth", { replace: true });
+        }
+    }, [location.state, navigate]);
 
     const [formData, setFormData] = useState({
         nome: "",
@@ -37,18 +43,30 @@ function Register() {
     async function handleSubmit(event) {
         event.preventDefault();
 
+        const cpfLimpo = formData.cpf.replace(/\D/g, "");
+
+        const telefoneLimpo = formData.telefone.replace(/\D/g, "");
+
         const newErrors = {};
+
+        if (!formData.cpf.trim()) {
+            newErrors.cpf = "Preencha o CPF.";
+        } else if (cpfLimpo.length !== 11) {
+            newErrors.cpf = "O CPF deve conter 11 dígitos.";
+        }
+
+        if (telefoneLimpo.length < 10 || telefoneLimpo.length > 11) {
+            newErrors.telefone = "Informe um telefone válido.";
+        }
 
         if (!formData.nome.trim()) {
             newErrors.nome = "Preencha o nome.";
         }
 
-        if (!formData.cpf.trim()) {
-            newErrors.cpf = "Preencha o CPF.";
-        }
-
         if (!formData.telefone.trim()) {
             newErrors.telefone = "Preencha o telefone.";
+        } else if (telefoneLimpo.length < 10 || telefoneLimpo.length > 11) {
+            newErrors.telefone = "Informe um telefone válido.";
         }
 
         if (!formData.senha) {
@@ -59,17 +77,30 @@ function Register() {
             newErrors.confirmarSenha = "Confirme a senha.";
         }
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            setErrorMessage("Preencha todos os campos.");
-            return;
-        }
 
         if (formData.senha !== formData.confirmarSenha) {
             setErrors({
                 confirmarSenha: "As senhas não coincidem."
             });
             setErrorMessage("");
+            return;
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+
+            if (
+                !formData.nome ||
+                !formData.cpf ||
+                !formData.telefone ||
+                !formData.senha ||
+                !formData.confirmarSenha
+            ) {
+                setErrorMessage("Preencha todos os campos.");
+            } else {
+                setErrorMessage("");
+            }
+
             return;
         }
 
