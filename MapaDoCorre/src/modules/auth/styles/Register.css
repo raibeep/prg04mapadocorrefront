@@ -166,6 +166,13 @@
     transition: .2s;
 }
 
+.field-error {
+    margin-top: 4px;
+    color: #d32f2f;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
 .btn-cadastrar:hover {
     background: #e24d00;
 }

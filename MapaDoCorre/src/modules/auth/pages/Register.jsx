@@ -17,6 +17,7 @@ function Register() {
     });
 
 
+    const [errors, setErrors] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
 
     function handleChange(event) {
@@ -26,26 +27,54 @@ function Register() {
             ...current,
             [name]: value
         }));
+
+        setErrors((current) => ({
+            ...current,
+            [name]: ""
+        }));
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
 
-        if (
-            !formData.nome ||
-            !formData.cpf ||
-            !formData.telefone ||
-            !formData.senha ||
-            !formData.confirmarSenha
-        ) {
+        const newErrors = {};
+
+        if (!formData.nome.trim()) {
+            newErrors.nome = "Preencha o nome.";
+        }
+
+        if (!formData.cpf.trim()) {
+            newErrors.cpf = "Preencha o CPF.";
+        }
+
+        if (!formData.telefone.trim()) {
+            newErrors.telefone = "Preencha o telefone.";
+        }
+
+        if (!formData.senha) {
+            newErrors.senha = "Preencha a senha.";
+        }
+
+        if (!formData.confirmarSenha) {
+            newErrors.confirmarSenha = "Confirme a senha.";
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
             setErrorMessage("Preencha todos os campos.");
             return;
         }
 
         if (formData.senha !== formData.confirmarSenha) {
-            setErrorMessage("As senhas não coincidem.");
+            setErrors({
+                confirmarSenha: "As senhas não coincidem."
+            });
+            setErrorMessage("");
             return;
         }
+
+        setErrors({});
+        setErrorMessage("");
 
         navigate("/selecionar-perfil", {
             state: {
@@ -92,6 +121,8 @@ function Register() {
                             value={email}
                             disabled
                         />
+
+                        {errors.email && (<p className="field-error">{errors.email}</p>)}
                     </div>
 
                     <div className="input-field">
@@ -104,6 +135,8 @@ function Register() {
                             value={formData.nome}
                             onChange={handleChange}
                         />
+
+                        {errors.nome && (<p className="field-error">{errors.nome}</p>)}
                     </div>
 
                     <div className="input-field">
@@ -116,6 +149,8 @@ function Register() {
                             value={formData.cpf}
                             onChange={handleChange}
                         />
+
+                        {errors.cpf && (<p className="field-error">{errors.cpf}</p>)}
                     </div>
 
                     <div className="input-field">
@@ -128,6 +163,8 @@ function Register() {
                             value={formData.telefone}
                             onChange={handleChange}
                         />
+
+                        {errors.telefone && (<p className="field-error">{errors.telefone}</p>)}
                     </div>
 
                     <div className="input-field">
@@ -140,6 +177,8 @@ function Register() {
                             value={formData.senha}
                             onChange={handleChange}
                         />
+
+                        {errors.senha && (<p className="field-error">{errors.senha}</p>)}
                     </div>
 
                     <div className="input-field">
@@ -152,6 +191,8 @@ function Register() {
                             value={formData.confirmarSenha}
                             onChange={handleChange}
                         />
+
+                        {errors.confirmarSenha && (<p className="field-error">{errors.confirmarSenha}</p>)}
                     </div>
 
                     {errorMessage && (
