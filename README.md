@@ -78,6 +78,21 @@ O **Mapa do Corre** é uma plataforma web com características de rede social vo
 
 ---
 
+<details>
+<summary>Credenciais para teste</summary>
+
+### Cliente
+
+- **E-mail:** raika@gmail.com
+- **Senha:** 12345678
+
+### Empresário
+
+- **E-mail:** eduardo@gmail.com
+- **Senha:** 12345678
+
+</details>
+
 ## 🔗 Repositório Back-end
 
 > [mapa-do-corre (back-end)](https://github.com/raibeep/prg04mapadocorreback)
