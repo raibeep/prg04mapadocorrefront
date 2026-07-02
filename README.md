@@ -5,6 +5,21 @@ O **Mapa do Corre** é uma plataforma web com características de rede social vo
 
 ---
 
+<details>
+<summary>Credenciais para teste</summary>
+
+### Cliente
+
+- **E-mail:** raika@gmail.com
+- **Senha:** 12345678
+
+### Empresário
+
+- **E-mail:** eduardo@gmail.com
+- **Senha:** 12345678
+
+</details>
+
 ## 🎯 Objetivo
 
 - Dar visibilidade a pequenos negócios
@@ -77,21 +92,6 @@ O **Mapa do Corre** é uma plataforma web com características de rede social vo
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ---
-
-<details>
-<summary>Credenciais para teste</summary>
-
-### Cliente
-
-- **E-mail:** raika@gmail.com
-- **Senha:** 12345678
-
-### Empresário
-
-- **E-mail:** eduardo@gmail.com
-- **Senha:** 12345678
-
-</details>
 
 ## 🔗 Repositório Back-end
 
