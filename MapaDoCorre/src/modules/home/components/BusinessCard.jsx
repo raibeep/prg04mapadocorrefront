@@ -1,9 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/BusinessCard.css";
 
 function BusinessCard({ negocio }) {
-    return (
-        <article className="business-card">
 
+    const navigate = useNavigate();
+
+    function abrirNegocio() {
+        navigate(`/detalhes-negocio/${negocio.id}`);
+    }
+
+    return (
+        <article
+            className="business-card"
+            onClick={abrirNegocio}
+        >
             <img
                 src={negocio.foto}
                 alt={negocio.nome}

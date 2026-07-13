@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import RotaProtegida from './shared/components/RotaProtegida';
 
-import LandingPage from './modules/landing_page/pages/LandingPage';
+import LandingPage from './modules/auth/pages/LandingPage';
 import AuthStart from './modules/auth/pages/AuthStart';
 import Login from './modules/auth/pages/Login';
 import Register from './modules/auth/pages/Register';
@@ -13,6 +13,8 @@ import CadastroNegocio from './modules/negocio/pages/CadastroNegocio';
 import EmpresarioPage from './modules/empresario/pages/EmpresarioPage'
 import EditProfile from './modules/profile/pages/EditProfile';
 import EditNegocio from "./modules/negocio/pages/EditNegocio";
+import DetalhesNegocio from "./modules/negocio/pages/DetalhesNegocio"
+import MinhaLoja from "./modules/empresario/pages/MinhaLoja";
 
 function App() {
   return (
@@ -43,11 +45,28 @@ function App() {
           </RotaProtegida>
         }
       />
+      <Route
+        path="/detalhes-negocio/:id"
+        element={
+          <RotaProtegida perfil="CLIENTE">
+            <DetalhesNegocio />
+          </RotaProtegida>
+        }
+      />
       {/*<Route path="/negocios" element={
         <RotaProtegida perfil="CLIENTE">
           <Negocios />
         </RotaProtegida>
       } />*/}
+
+      <Route
+        path="/minha-loja/:id"
+        element={
+          <RotaProtegida perfil="EMPRESARIO">
+            <MinhaLoja />
+          </RotaProtegida>
+        }
+      />
 
       {/* Empresário */}
       <Route path="/dashboard" element={
@@ -78,6 +97,14 @@ function App() {
         element={
           <RotaProtegida perfil="EMPRESARIO">
             <EditNegocio />
+          </RotaProtegida>
+        }
+      />
+      <Route
+        path="/minha-loja"
+        element={
+          <RotaProtegida perfil="EMPRESARIO">
+            <MinhaLoja />
           </RotaProtegida>
         }
       />

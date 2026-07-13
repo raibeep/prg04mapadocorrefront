@@ -50,6 +50,14 @@
     border-color: #FB5607;
 }
 
+/* NOVO: agrupa carrinho + avatar + logout como um bloco só */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+}
+
 .profile-link {
     display: flex;
     align-items: center;
@@ -84,6 +92,23 @@
 .app-avatar-img:hover,
 .app-avatar:hover {
     transform: scale(1.05);
+}
+
+/* NOVO: ícone do carrinho */
+.btn-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: #222;
+    transition: .2s;
+}
+
+.btn-cart:hover {
+    background: #FFF3E9;
+    color: #FB5607;
 }
 
 .btn-logout {

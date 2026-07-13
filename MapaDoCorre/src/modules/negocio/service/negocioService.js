@@ -1,45 +1,68 @@
 import { API_URL } from "../../../shared/services/api";
 
+const URL = `${API_URL}/negocios`;
+
 export async function cadastrarNegocio(empresarioId, negocio) {
     const token = localStorage.getItem("token");
 
-    return await fetch(`${API_URL}/empresarios/${empresarioId}/negocios`, {
+    return fetch(`${API_URL}/empresarios/${empresarioId}/negocios`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(negocio)
     });
 }
 
 export async function getCategorias() {
-    const token = localStorage.getItem("token");
-
-    return await fetch(`${API_URL}/categorias/findall`, {
-        headers: { "Authorization": `Bearer ${token}` }
+    return fetch(`${API_URL}/categorias/findall`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
     });
 }
 
 export async function getNegocio(id) {
-    const token = localStorage.getItem("token");
-
-    return fetch(`${API_URL}/negocios/findbyid/${id}`, {
+    return fetch(`${URL}/findbyid/${id}`, {
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+}
+
+export async function getNegocios() {
+    return fetch(`${URL}/findall`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
         }
     });
 }
 
 export async function updateNegocio(id, negocio) {
-    const token = localStorage.getItem("token");
-
-    return fetch(`${API_URL}/negocios/update/${id}`, {
+    return fetch(`${URL}/update/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${localStorage.getItem("token")}`
         },
         body: JSON.stringify(negocio)
+    });
+}
+
+export async function deleteNegocio(id) {
+    return fetch(`${URL}/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+}
+
+export async function getProdutosDoNegocio(id) {
+    return fetch(`${API_URL}/produtos/negocio/${id}`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
     });
 }

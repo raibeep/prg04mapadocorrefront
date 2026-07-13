@@ -1,1 +1,1 @@
-export const API_URL = "https://prg04mapadocorreback-production.up.railway.app";
+export const API_URL = "https://mapadocorre-api.onrender.com";

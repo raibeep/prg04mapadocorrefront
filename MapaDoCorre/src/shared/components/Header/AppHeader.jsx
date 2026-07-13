@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getPerfil } from "../../../modules/profile/service/userService";
 import { getEmpresario } from "../../../modules/empresario/service/empresarioService";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiShoppingCart } from "react-icons/fi";
 import "./AppHeader.css";
 
 function AppHeader({
     showSearch = false,
     onSearch,
-    profileRoute
+    profileRoute,
+    showCart = true
 }) {
     const navigate = useNavigate();
 
@@ -88,29 +89,39 @@ function AppHeader({
                 </div>
             )}
 
-            <Link to={rotaPerfil} className="profile-link">
+            <div className="header-actions">
 
-                {fotoPerfil ? (
-
-                    <img
-                        src={fotoPerfil}
-                        alt="Foto de Perfil"
-                        className="app-avatar-img"
-                    />
-
-                ) : (
-
-                    <div className="app-avatar">
-                        {inicial}
-                    </div>
-
+                {showCart && tipoPerfil === "CLIENTE" && (
+                    <Link to="/carrinho" className="btn-cart">
+                        <FiShoppingCart size={20} />
+                    </Link>
                 )}
 
-            </Link>
+                <Link to={rotaPerfil} className="profile-link">
 
-            <button className="btn-logout" onClick={handleLogout}>
-                <FiLogOut size={20} />
-            </button>
+                    {fotoPerfil ? (
+
+                        <img
+                            src={fotoPerfil}
+                            alt="Foto de Perfil"
+                            className="app-avatar-img"
+                        />
+
+                    ) : (
+
+                        <div className="app-avatar">
+                            {inicial}
+                        </div>
+
+                    )}
+
+                </Link>
+
+                <button className="btn-logout" onClick={handleLogout}>
+                    <FiLogOut size={20} />
+                </button>
+
+            </div>
 
         </header>
     );
