@@ -144,17 +144,6 @@ function EmpresarioPage() {
                         </div>
 
                         <div className="empresario-sidebar-links">
-
-                            <a href="#" className="empresario-sidebar-link">
-                                <Star size={24} />
-                                Ver avaliações do negócio
-                            </a>
-
-                            <a href="#" className="empresario-sidebar-link">
-                                <BriefcaseBusiness size={24} />
-                                Meu negócio
-                            </a>
-
                             <a href="#" className="empresario-sidebar-link">
                                 <LayoutDashboard size={24} />
                                 Painel do empresário
