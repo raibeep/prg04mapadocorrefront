@@ -1,0 +1,84 @@
+.produto-modal .produto-modal-close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    max-width:40px;      /* garante contra width:100% global */
+    padding:0;           /* garante contra padding global do botão */
+    border:none;
+    border-radius:50%;
+    background:white;
+    color:#222;
+    cursor:pointer;
+    font-size:1.4rem;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+}
+
+.produto-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    padding:20px; /* também evita o modal grudar na borda da tela em mobile */
+}
+
+.produto-modal{
+    background:white;
+    width:500px;
+    max-width:92%;
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:20px;
+    position:relative;
+}
+
+.produto-modal img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.produto-modal h2{
+    margin:20px;
+}
+
+.produto-modal p{
+    margin:0 20px;
+    color:#666;
+    line-height:1.6;
+}
+
+.produto-modal strong{
+    display:block;
+    margin:20px;
+    font-size:1.6rem;
+    color:#FB5607;
+}
+
+.produto-modal button{
+    width:calc(100% - 40px);
+    margin:0 20px 20px;
+    border:none;
+    background:#FB5607;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:600;
+}
+
+
+@media (max-width:480px){
+    .produto-modal img{
+        height:180px;
+    }
+}

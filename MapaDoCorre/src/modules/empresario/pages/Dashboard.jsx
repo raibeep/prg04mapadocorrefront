@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AppHeader from "../../../shared/components/Header/AppHeader";
 import { getEmpresario, getNegocioDoEmpresario } from "../service/empresarioService";
-import { Star, Package, User, MapPinned, Pencil, Camera, Phone } from "lucide-react";
+import { Star, Package, User, MapPinned, Pencil, Camera, Phone, Store } from "lucide-react";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
@@ -118,7 +118,11 @@ function Dashboard() {
                             </div>
                             <div className="dash-atalho" onClick={() => navigate("/perfil-empresario")}>
                                 <User size={24} />
-                                <span>Meu perfil</span>
+                                <span>Meu Perfil</span>
+                            </div>
+                            <div className="dash-atalho" onClick={() => navigate(`/minha-loja/${negocio.id}`)}>
+                                <Store size={24}/>
+                                <span>Minha Loja</span>
                             </div>
                         </div>
                     </div>

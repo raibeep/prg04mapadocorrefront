@@ -1,0 +1,17 @@
+.produto-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));
+    gap:24px;
+}
+
+.sem-produtos{
+    text-align:center;
+    padding:50px;
+    color:#666;
+}
+
+@media (max-width:600px){
+    .produto-grid{
+        gap:16px;
+    }
+}

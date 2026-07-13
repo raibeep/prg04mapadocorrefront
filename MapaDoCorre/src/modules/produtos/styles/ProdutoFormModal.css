@@ -1,0 +1,54 @@
+.produto-form-modal{
+    padding:28px;
+}
+
+.produto-form-modal h2{
+    margin-bottom:20px;
+    color:var(--text-main);
+}
+
+.produto-form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.produto-form label{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:.9rem;
+    color:var(--text-main);
+    font-weight:600;
+}
+
+.produto-form input,
+.produto-form textarea,
+.produto-form select{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:10px 14px;
+    font-size:.95rem;
+    font-family:inherit;
+}
+
+.produto-form-erro{
+    color:#e5484d;
+    font-size:.85rem;
+}
+
+.produto-form button[type="submit"]{
+    background:var(--color-primary);
+    color:#fff;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.produto-form button[type="submit"]:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
