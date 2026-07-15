@@ -110,10 +110,14 @@ function Register() {
         navigate("/selecionar-perfil", {
             state: {
                 nome: formData.nome,
-                cpf: formData.cpf,
-                telefone: formData.telefone,
-                email,
-                senha: formData.senha
+                cpf: cpfLimpo,
+                telefone: telefoneLimpo,
+                fotoPerfil: null,
+                bio: null,
+                usuario: {
+                    email,
+                    senha: formData.senha
+                }
             }
         });
     }

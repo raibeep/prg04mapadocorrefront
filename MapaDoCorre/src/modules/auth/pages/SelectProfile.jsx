@@ -16,17 +16,24 @@ function SelectProfile() {
     const dadosCadastro = location.state;
 
     useEffect(() => {
-    if (!location.state) {
-        navigate("/auth", { replace: true });
-        return;
-    }
+        if (!location.state) {
+            navigate("/auth", { replace: true });
+            return;
+        }
 
-    const { nome, cpf, telefone, email, senha } = location.state;
+        const { nome, cpf, telefone, usuario } = location.state;
 
-    if (!nome || !cpf || !telefone || !email || !senha) {
-        navigate("/auth", { replace: true });
-    }
-}, [location.state, navigate]);
+        if (
+            !nome ||
+            !cpf ||
+            !telefone ||
+            !usuario ||
+            !usuario.email ||
+            !usuario.senha
+        ) {
+            navigate("/auth", { replace: true });
+        }
+    }, [location.state, navigate]);
 
     async function handleSubmit() {
 
@@ -34,8 +41,14 @@ function SelectProfile() {
 
         const dadosLimpos = {
             ...dadosCadastro,
+
             cpf: dadosCadastro.cpf.replace(/\D/g, ""),
-            telefone: dadosCadastro.telefone.replace(/\D/g, "")
+
+            telefone: dadosCadastro.telefone.replace(/\D/g, ""),
+
+            usuario: {
+                ...dadosCadastro.usuario
+            }
         };
 
         try {
@@ -63,7 +76,7 @@ function SelectProfile() {
 
             navigate("/login", {
                 state: {
-                    email: dadosCadastro.email
+                    email: dadosCadastro.usuario.email
                 }
             });
 
