@@ -15,7 +15,7 @@ function ProfilePage() {
         const carregarPerfil = async () => {
             try {
                 setLoading(true);
-                const userId = localStorage.getItem("userId");
+                const userId = localStorage.getItem("perfilId");
                 if (!userId || userId === "null" || userId === "undefined") {
                     throw new Error("Usuário não identificado. Por favor, faça login.");
                 }
