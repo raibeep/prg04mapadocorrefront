@@ -6,7 +6,7 @@
 
 .negocio-header {
     width: 100%;
-    height: 360px;
+    height: 430px;
     overflow: hidden;
     position: relative;
 }
@@ -15,90 +15,112 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: saturate(1.05);
+    object-position: center 40%;
+    filter: brightness(.92) saturate(1.08);
 }
 
 .negocio-header::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top,
-            rgba(34, 34, 34, .9) 0%,
-            rgba(34, 34, 34, .25) 55%,
-            rgba(34, 34, 34, 0) 100%);
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 20%,
+            rgba(0, 0, 0, .15) 55%,
+            rgba(0, 0, 0, .65) 100%);
 }
 
+
 .negocio-info {
-    max-width: 1100px;
-    margin: -110px auto 0;
+
+    max-width: 920px;
+    margin: -70px auto 0;
     position: relative;
-    z-index: 2;
-    background: var(--text-main);
-    padding: 40px 45px 34px;
-    clip-path: polygon(0 12px, 12px 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 5;
+    background: #2A211B;
+    padding: 46px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 190, 11, .12);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, .15),
+        0 8px 20px rgba(0, 0, 0, .08);
+
 }
 
 .negocio-info h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: 3.4rem;
-    letter-spacing: .03em;
-    line-height: 1;
-    margin-bottom: 14px;
-    color: var(--color-bg);
-    text-transform: uppercase;
+
+    margin: 0;
+    color: #FFFBF0;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.negocio-info h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 6px;
+    border-radius: 999px;
+    margin-top: 16px;
+    background: #3A86FF;
 }
 
 .negocio-descricao {
-    color: #C9C9C9;
-    margin-top: 10px;
-    line-height: 1;
-    max-width: 640px;
-    font-size: .98rem;
+    margin-top: 24px;
+    color: #DDD4C8;
+    line-height: 1.8;
+    font-size: 1rem;
+    max-width: 700px;
 }
 
 .negocio-infos {
     display: flex;
-    gap: 12px;
-    margin-top: 22px;
+    gap: 14px;
     flex-wrap: wrap;
+    margin-top: 30px;
 }
 
 .info-pill {
-    background: transparent;
-    color: var(--color-bg);
-    padding: 6px 16px;
-    border: 1.5px solid var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
     border-radius: 999px;
-    font-family: 'Space Mono', monospace;
-    font-size: .75rem;
-    letter-spacing: .05em;
-    text-transform: uppercase;
+    font-size: .85rem;
+    font-weight: 600;
 }
 
-.info-pill:nth-child(2) {
-    border-color: var(--color-accent);
+.info-pill:first-child {
+    background: rgba(58, 134, 255, .15);
+    color: #3A86FF;
+    border: 1px solid rgba(58, 134, 255, .35);
+}
+
+.info-pill:last-child {
+    background: rgba(233, 212, 97, 0.15);
+    color: #FFBE0B;
+    border: 1px solid rgba(255, 225, 73, 0.521);
 }
 
 .produtos-section {
     max-width: 1100px;
-    margin: 56px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
 }
 
 .produtos-section h2 {
-    font-family: 'Inter', sans-serif;
-    font-size: 2.2rem;
-    letter-spacing: .02em;
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--text-main);
-    margin-bottom: 28px;
-    text-transform: uppercase;
+    margin-bottom: 32px;
 }
 
 .produtos-section h2::after {
     content: "";
     display: block;
-    width: 200px;
+    width: 136px;
     height: 4px;
+    margin-top: 10px;
+    border-radius: 999px;
     background: var(--color-primary);
-    margin-top: 8px;
 }
