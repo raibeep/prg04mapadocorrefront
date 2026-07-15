@@ -26,6 +26,7 @@ function Dashboard() {
                 if (resNegocio.ok && resNegocio.status !== 204) {
                     const dados = await resNegocio.json();
                     setNegocio(dados);
+                    localStorage.setItem("negocioId", dados.id);
                 }
             } catch (error) {
                 console.error("Erro ao carregar dashboard:", error);
@@ -103,26 +104,6 @@ function Dashboard() {
                                 <span className="dash-negocio-categoria">{negocio.categoriaNome}</span>
                                 <p className="dash-negocio-descricao">{negocio.descricao}</p>
                                 <p className="dash-negocio-contato"><Phone size={16} /> {negocio.contato}</p>
-                            </div>
-                        </div>
-
-                        {/* ATALHOS */}
-                        <div className="dash-atalhos">
-                            <div className="dash-atalho" onClick={() => navigate("/avaliacoes")}>
-                                <Star size={24} />
-                                <span>Avaliações</span>
-                            </div>
-                            <div className="dash-atalho" onClick={() => navigate("/pedidos")}>
-                                <Package size={24} />
-                                <span>Pedidos</span>
-                            </div>
-                            <div className="dash-atalho" onClick={() => navigate("/perfil-empresario")}>
-                                <User size={24} />
-                                <span>Meu Perfil</span>
-                            </div>
-                            <div className="dash-atalho" onClick={() => navigate(`/minha-loja/${negocio.id}`)}>
-                                <Store size={24}/>
-                                <span>Minha Loja</span>
                             </div>
                         </div>
                     </div>
