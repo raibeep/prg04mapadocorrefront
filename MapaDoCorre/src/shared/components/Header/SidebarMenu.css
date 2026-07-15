@@ -1,0 +1,133 @@
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+    z-index: 1200;
+}
+
+.sidebar-overlay.aberto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 300px;
+    max-width: 85vw;
+    background: #ffffff;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, .15);
+    z-index: 1201;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+}
+
+.sidebar-menu.aberto {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+.sidebar-fechar {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-perfil {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 24px 24px;
+    border-bottom: 1px solid #ececec;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar-avatar,
+.sidebar-avatar-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+.sidebar-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff8a00;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sidebar-avatar-img {
+    object-fit: cover;
+}
+
+.sidebar-perfil strong {
+    display: block;
+    color: #222;
+    font-size: 1rem;
+}
+
+.sidebar-perfil span {
+    display: block;
+    color: #999;
+    font-size: .85rem;
+    margin-top: 2px;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 24px;
+    color: #222;
+    text-decoration: none;
+    font-size: .95rem;
+    font-weight: 500;
+    transition: .15s;
+}
+
+.sidebar-link:hover {
+    background: #fff3eb;
+    color: #FB5607;
+}
+
+.sidebar-logout {
+    background: transparent;
+    border: none;
+    border-top: 1px solid #ececec;
+    margin-top: auto;
+    color: #e5484d;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+}
+
+.sidebar-logout:hover {
+    background: #fdecea;
+}

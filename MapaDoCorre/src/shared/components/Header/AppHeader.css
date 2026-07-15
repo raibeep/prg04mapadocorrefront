@@ -101,13 +101,14 @@
     justify-content: center;
     width: 42px;
     height: 42px;
-    border-radius: 50%;
+    border: none;
+    background-color: transparent;
     color: #222;
     transition: .2s;
+    position: relative;
 }
 
 .btn-cart:hover {
-    background: #FFF3E9;
     color: #FB5607;
 }
 
@@ -118,4 +119,41 @@
     padding: 2px 16px;
     cursor: pointer;
     transition: .2s;
+}
+
+.carrinho-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-menu {
+    background: transparent;
+    border: none;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+}
+
+.btn-menu:hover {
+    color: #FB5607;
 }

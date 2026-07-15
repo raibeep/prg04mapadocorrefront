@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getPerfil } from "../../../modules/profile/service/userService";
 import { getEmpresario } from "../../../modules/empresario/service/empresarioService";
-import { FiLogOut, FiShoppingCart } from "react-icons/fi";
+import { FiLogOut, FiShoppingCart, FiMenu } from "react-icons/fi";
+import { useCarrinho } from "../../context/CarrinhoContext";
+import SidebarMenu from "./SidebarMenu";
 import "./AppHeader.css";
 
 function AppHeader({
@@ -17,16 +19,9 @@ function AppHeader({
 
     const [nome, setNome] = useState(localStorage.getItem("nomeUsuario") || "");
     const [fotoPerfil, setFotoPerfil] = useState("");
+    const [menuAberto, setMenuAberto] = useState(false);
 
-    function handleLogout() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("usuario");
-        localStorage.removeItem("tipoPerfil");
-        localStorage.removeItem("userId");
-        localStorage.removeItem("perfilId");
-        localStorage.removeItem("nomeUsuario");
-        navigate("/auth", { replace: true });
-    }
+    const { quantidadeTotal, abrirCarrinho } = useCarrinho();
 
     useEffect(() => {
         async function carregarUsuario() {
@@ -36,11 +31,9 @@ function AppHeader({
                 let response;
 
                 if (tipoPerfil === "CLIENTE") {
-
-                    response = await getPerfil(localStorage.getItem("userId"));
+                    response = await getPerfil(localStorage.getItem("perfilId"));
 
                 } else if (tipoPerfil === "EMPRESARIO") {
-
                     response = await getEmpresario(localStorage.getItem("perfilId"));
 
                 } else {
@@ -72,58 +65,63 @@ function AppHeader({
             : "/tela-perfil");
 
     return (
-        <header className="app-header">
+        <>
 
-            <Link to={tipoPerfil === "EMPRESARIO" ? "/dashboard" : "/home"} className="app-logo">
-                <img src="/favicon.png" alt="Mapa do Corre" />
-            </Link>
+            <header className="app-header">
 
-            {showSearch && (
-                <div className="search-container">
-                    <input
-                        type="text"
-                        placeholder="O que você procura hoje?"
-                        className="search-input"
-                        onChange={onSearch}
-                    />
-                </div>
-            )}
+                <div className="header-esquerda">
 
-            <div className="header-actions">
+                    <button
+                        type="button"
+                        className="btn-menu"
+                        onClick={() => setMenuAberto(true)}
+                        aria-label="Abrir menu"
+                    >
+                        <FiMenu size={22} />
+                    </button>
 
-                {showCart && tipoPerfil === "CLIENTE" && (
-                    <Link to="/carrinho" className="btn-cart">
-                        <FiShoppingCart size={20} />
+                    <Link to={tipoPerfil === "EMPRESARIO" ? "/dashboard" : "/home"} className="app-logo">
+                        <img src="/favicon.png" alt="Mapa do Corre" />
                     </Link>
+
+                </div>
+
+                {showSearch && (
+                    <div className="search-container">
+                        <input
+                            type="text"
+                            placeholder="O que você procura hoje?"
+                            className="search-input"
+                            onChange={onSearch}
+                        />
+                    </div>
                 )}
 
-                <Link to={rotaPerfil} className="profile-link">
+                <div className="header-actions">
 
-                    {fotoPerfil ? (
-
-                        <img
-                            src={fotoPerfil}
-                            alt="Foto de Perfil"
-                            className="app-avatar-img"
-                        />
-
-                    ) : (
-
-                        <div className="app-avatar">
-                            {inicial}
-                        </div>
-
+                    {showCart && tipoPerfil === "CLIENTE" && (
+                        <button type="button" className="btn-cart" onClick={abrirCarrinho}>
+                            <FiShoppingCart size={20} />
+                            {quantidadeTotal > 0 && (
+                                <span className="carrinho-badge">{quantidadeTotal}</span>
+                            )}
+                        </button>
                     )}
 
-                </Link>
+                </div>
 
-                <button className="btn-logout" onClick={handleLogout}>
-                    <FiLogOut size={20} />
-                </button>
+            </header>
 
-            </div>
+            <SidebarMenu
+                aberto={menuAberto}
+                onClose={() => setMenuAberto(false)}
+                tipoPerfil={tipoPerfil}
+                nome={nome}
+                fotoPerfil={fotoPerfil}
+                rotaPerfil={rotaPerfil}
+            />
 
-        </header>
+        </>
     );
 }
 
