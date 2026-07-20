@@ -59,7 +59,7 @@ function Login() {
 
             <section className="login-card">
 
-                <Link to="/cadastro" className="btn-fechar">
+                <Link to="/auth" className="btn-fechar">
                     ←
                 </Link>
 

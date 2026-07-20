@@ -4,20 +4,33 @@ const CarrinhoContext = createContext(null);
 
 export function CarrinhoProvider({ children }) {
 
-    const [itens, setItens] = useState(() => {
+    const clienteId = localStorage.getItem("clienteId");
+    const chaveCarrinho = clienteId
+        ? `carrinho_${clienteId}`
+        : "carrinho_visitante";
 
-        const salvo = localStorage.getItem("carrinho");
-        return salvo ? JSON.parse(salvo) : [];
-
-    });
-
+    const [itens, setItens] = useState([]);
     const [aberto, setAberto] = useState(false);
 
+    // Carrega o carrinho do usuário sempre que o cliente mudar
     useEffect(() => {
 
-        localStorage.setItem("carrinho", JSON.stringify(itens));
+        const salvo = localStorage.getItem(chaveCarrinho);
 
-    }, [itens]);
+        if (salvo) {
+            setItens(JSON.parse(salvo));
+        } else {
+            setItens([]);
+        }
+
+    }, [chaveCarrinho]);
+
+    // Salva o carrinho do usuário atual
+    useEffect(() => {
+
+        localStorage.setItem(chaveCarrinho, JSON.stringify(itens));
+
+    }, [itens, chaveCarrinho]);
 
     function adicionarItem(produto) {
 
@@ -29,13 +42,22 @@ export function CarrinhoProvider({ children }) {
 
                 return prev.map(item =>
                     item.id === produto.id
-                        ? { ...item, quantidade: item.quantidade + 1 }
+                        ? {
+                            ...item,
+                            quantidade: item.quantidade + 1
+                        }
                         : item
                 );
 
             }
 
-            return [...prev, { ...produto, quantidade: 1 }];
+            return [
+                ...prev,
+                {
+                    ...produto,
+                    quantidade: 1
+                }
+            ];
 
         });
 
@@ -45,7 +67,9 @@ export function CarrinhoProvider({ children }) {
 
     function removerItem(produtoId) {
 
-        setItens(prev => prev.filter(item => item.id !== produtoId));
+        setItens(prev =>
+            prev.filter(item => item.id !== produtoId)
+        );
 
     }
 
@@ -56,9 +80,16 @@ export function CarrinhoProvider({ children }) {
             return;
         }
 
-        setItens(prev => prev.map(item =>
-            item.id === produtoId ? { ...item, quantidade } : item
-        ));
+        setItens(prev =>
+            prev.map(item =>
+                item.id === produtoId
+                    ? {
+                        ...item,
+                        quantidade
+                    }
+                    : item
+            )
+        );
 
     }
 
@@ -69,36 +100,44 @@ export function CarrinhoProvider({ children }) {
     }
 
     function abrirCarrinho() {
+
         setAberto(true);
+
     }
 
     function fecharCarrinho() {
+
         setAberto(false);
+
     }
 
     const total = itens.reduce(
-        (soma, item) => soma + Number(item.preco) * item.quantidade,
+        (soma, item) =>
+            soma + Number(item.preco) * item.quantidade,
         0
     );
 
     const quantidadeTotal = itens.reduce(
-        (soma, item) => soma + item.quantidade,
+        (soma, item) =>
+            soma + item.quantidade,
         0
     );
 
     return (
-        <CarrinhoContext.Provider value={{
-            itens,
-            aberto,
-            total,
-            quantidadeTotal,
-            adicionarItem,
-            removerItem,
-            alterarQuantidade,
-            limparCarrinho,
-            abrirCarrinho,
-            fecharCarrinho
-        }}>
+        <CarrinhoContext.Provider
+            value={{
+                itens,
+                aberto,
+                total,
+                quantidadeTotal,
+                adicionarItem,
+                removerItem,
+                alterarQuantidade,
+                limparCarrinho,
+                abrirCarrinho,
+                fecharCarrinho
+            }}
+        >
             {children}
         </CarrinhoContext.Provider>
     );
@@ -110,7 +149,9 @@ export function useCarrinho() {
     const contexto = useContext(CarrinhoContext);
 
     if (!contexto) {
-        throw new Error("useCarrinho precisa estar dentro de um CarrinhoProvider");
+        throw new Error(
+            "useCarrinho precisa estar dentro de um CarrinhoProvider"
+        );
     }
 
     return contexto;

@@ -1,8 +1,18 @@
+import { useCarrinho } from "../../../shared/context/CarrinhoContext";
 import "../styles/ProdutoModal.css";
 
 function ProdutoModal({ produto, aberto, onClose }) {
 
+    const { adicionarItem } = useCarrinho();
+
     if (!aberto || !produto) return null;
+
+    function handleAdicionar() {
+
+        adicionarItem(produto);
+        onClose();
+
+    }
 
     return (
 
@@ -30,7 +40,7 @@ function ProdutoModal({ produto, aberto, onClose }) {
                     R$ {Number(produto.preco).toFixed(2)}
                 </strong>
 
-                <button>
+                <button onClick={handleAdicionar}>
                     Adicionar ao carrinho
                 </button>
 

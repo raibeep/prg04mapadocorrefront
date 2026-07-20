@@ -16,7 +16,7 @@ export async function cadastrarNegocio(empresarioId, negocio) {
 }
 
 export async function getCategorias() {
-    return fetch(`${API_URL}/categorias/findall`, {
+    return fetch(`${API_URL}/categorias/findall?size=100`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
         }
