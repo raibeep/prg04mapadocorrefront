@@ -1,0 +1,44 @@
+/* CategoriaFiltro.css */
+.categoria-filtro {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 20px 32px;
+    
+    scrollbar-width: none;
+}
+
+.categoria-filtro::-webkit-scrollbar {
+    display: none;
+}
+
+.categoria-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid #ececec;
+    background: #ffffff;
+    color: #5b6271;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+    white-space: nowrap;
+}
+
+.categoria-chip:hover {
+    border-color: #FB5607;
+}
+
+.categoria-chip.ativo {
+    background: #FB5607;
+    border-color: #FB5607;
+    color: #ffffff;
+}
+
+.categoria-icone {
+    font-size: 1.1rem;
+}

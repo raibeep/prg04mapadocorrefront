@@ -15,100 +15,103 @@ import EditProfile from './modules/profile/pages/EditProfile';
 import EditNegocio from "./modules/negocio/pages/EditNegocio";
 import DetalhesNegocio from "./modules/negocio/pages/DetalhesNegocio"
 import MinhaLoja from "./modules/empresario/pages/MinhaLoja";
+import { CarrinhoProvider } from "./shared/context/CarrinhoContext";
+import CarrinhoDrawer from "./modules/carrinho/components/CarrinhoDrawer";
 
 function App() {
   return (
-    <Routes>
-      {/* Públicas */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/auth" element={<AuthStart />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/selecionar-perfil" element={<SelectProfile />} />
+    <CarrinhoProvider>
 
-      {/* Cliente */}
-      <Route path="/home" element={
-        <RotaProtegida perfil="CLIENTE">
-          <Home />
-        </RotaProtegida>
-      } />
-      <Route path="/tela-perfil" element={
-        <RotaProtegida perfil="CLIENTE">
-          <ProfilePage />
-        </RotaProtegida>
-      } />
-      <Route
-        path="/editar-perfil"
-        element={
+      <CarrinhoDrawer />
+
+      <Routes>
+        {/* Públicas */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/auth" element={<AuthStart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/selecionar-perfil" element={<SelectProfile />} />
+
+        {/* Cliente */}
+        <Route path="/home" element={
           <RotaProtegida perfil="CLIENTE">
-            <EditProfile />
+            <Home />
           </RotaProtegida>
-        }
-      />
-      <Route
-        path="/detalhes-negocio/:id"
-        element={
+        } />
+        <Route path="/tela-perfil" element={
           <RotaProtegida perfil="CLIENTE">
-            <DetalhesNegocio />
+            <ProfilePage />
           </RotaProtegida>
-        }
-      />
-      {/*<Route path="/negocios" element={
-        <RotaProtegida perfil="CLIENTE">
-          <Negocios />
-        </RotaProtegida>
-      } />*/}
+        } />
+        <Route
+          path="/editar-perfil"
+          element={
+            <RotaProtegida perfil="CLIENTE">
+              <EditProfile />
+            </RotaProtegida>
+          }
+        />
+        <Route
+          path="/detalhes-negocio/:id"
+          element={
+            <RotaProtegida perfil="CLIENTE">
+              <DetalhesNegocio />
+            </RotaProtegida>
+          }
+        />
 
-      <Route
-        path="/minha-loja/:id"
-        element={
-          <RotaProtegida perfil="EMPRESARIO">
-            <MinhaLoja />
-          </RotaProtegida>
-        }
-      />
+        <Route
+          path="/minha-loja/:id"
+          element={
+            <RotaProtegida perfil="EMPRESARIO">
+              <MinhaLoja />
+            </RotaProtegida>
+          }
+        />
 
-      {/* Empresário */}
-      <Route path="/dashboard" element={
-        <RotaProtegida perfil="EMPRESARIO">
-          <Dashboard />
-        </RotaProtegida>
-      } />
-      <Route path="/cadastro-negocio" element={
-        <RotaProtegida perfil="EMPRESARIO">
-          <CadastroNegocio />
-        </RotaProtegida>
-      } />
-      <Route path="/perfil-empresario" element={
-        <RotaProtegida perfil="EMPRESARIO">
-          <EmpresarioPage />
-        </RotaProtegida>
-      } />
-      <Route
-        path="/editar-perfil-empresario"
-        element={
+        {/* Empresário */}
+        <Route path="/dashboard" element={
           <RotaProtegida perfil="EMPRESARIO">
-            <EditProfile />
+            <Dashboard />
           </RotaProtegida>
-        }
-      />
-      <Route
-        path="/editar-negocio/:id"
-        element={
+        } />
+        <Route path="/cadastro-negocio" element={
           <RotaProtegida perfil="EMPRESARIO">
-            <EditNegocio />
+            <CadastroNegocio />
           </RotaProtegida>
-        }
-      />
-      <Route
-        path="/minha-loja"
-        element={
+        } />
+        <Route path="/perfil-empresario" element={
           <RotaProtegida perfil="EMPRESARIO">
-            <MinhaLoja />
+            <EmpresarioPage />
           </RotaProtegida>
-        }
-      />
-    </Routes>
+        } />
+        <Route
+          path="/editar-perfil-empresario"
+          element={
+            <RotaProtegida perfil="EMPRESARIO">
+              <EditProfile />
+            </RotaProtegida>
+          }
+        />
+        <Route
+          path="/editar-negocio/:id"
+          element={
+            <RotaProtegida perfil="EMPRESARIO">
+              <EditNegocio />
+            </RotaProtegida>
+          }
+        />
+        <Route
+          path="/minha-loja"
+          element={
+            <RotaProtegida perfil="EMPRESARIO">
+              <MinhaLoja />
+            </RotaProtegida>
+          }
+        />
+      </Routes>
+
+    </CarrinhoProvider>
   );
 }
 
