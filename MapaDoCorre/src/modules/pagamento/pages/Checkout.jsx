@@ -236,7 +236,7 @@ function Checkout() {
 
             limparCarrinho();
 
-            navigate("/pedido/sucesso");
+            navigate("/pedido-sucesso");
 
         } catch (erro) {
 

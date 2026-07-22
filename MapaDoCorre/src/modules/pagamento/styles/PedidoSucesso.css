@@ -45,9 +45,119 @@
 }
 
 .pedido-icon {
-    position: relative;
-    font-size: 2.75rem;
-    margin-bottom: 1rem;
+    width: 95px;
+    height: 95px;
+    margin-bottom: 1.5rem;
+    position:relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg,
+            var(--color-primary),
+            var(--color-secondary));
+
+    box-shadow:
+        0 10px 30px rgba(58, 134, 255, .25);
+
+    animation: aparecer 0.45s ease;
+}
+
+.pedido-icon svg {
+    width: 52px;
+    height: 52px;
+}
+
+.pedido-circle {
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 157;
+    stroke-dashoffset: 157;
+    animation: desenharCirculo .7s ease forwards;
+}
+
+.pedido-check {
+    stroke: #fff;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 36;
+    stroke-dashoffset: 36;
+    animation: desenharCheck .45s ease .55s forwards;
+}
+
+@keyframes aparecer {
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes desenharCirculo {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes desenharCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.pedido-card{
+    animation: subir .6s ease;
+}
+
+@keyframes subir{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.pedido-icon::after{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border-radius:50%;
+
+    background:inherit;
+
+    opacity:.18;
+    filter:blur(12px);
+
+    animation:pulsar 2.5s infinite;
+}
+
+@keyframes pulsar{
+
+    0%{
+        transform:scale(1);
+        opacity:.18;
+    }
+
+    70%{
+        transform:scale(1.25);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1.25);
+        opacity:0;
+    }
+
 }
 
 .pedido-card h1 {
@@ -96,6 +206,7 @@
     .pedido-card {
         padding: 2.25rem 1.5rem;
     }
+
     .pedido-card::before {
         font-size: 2rem;
     }
