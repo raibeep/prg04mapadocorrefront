@@ -17,6 +17,8 @@ import DetalhesNegocio from "./modules/negocio/pages/DetalhesNegocio"
 import MinhaLoja from "./modules/empresario/pages/MinhaLoja";
 import { CarrinhoProvider } from "./shared/context/CarrinhoContext";
 import CarrinhoDrawer from "./modules/carrinho/components/CarrinhoDrawer";
+import Checkout from "./modules/pagamento/pages/Checkout";
+import PedidoSucesso from "./modules/pagamento/pages/PedidoSucesso";
 
 function App() {
   return (
@@ -56,6 +58,24 @@ function App() {
           element={
             <RotaProtegida perfil="CLIENTE">
               <DetalhesNegocio />
+            </RotaProtegida>
+          }
+        />
+        
+        <Route
+          path="/checkout"
+          element={
+            <RotaProtegida perfil="CLIENTE">
+              <Checkout />
+            </RotaProtegida>
+          }
+        />
+
+        <Route
+          path="/pedido-sucesso"
+          element={
+            <RotaProtegida perfil="CLIENTE">
+              <PedidoSucesso />
             </RotaProtegida>
           }
         />

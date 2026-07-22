@@ -123,6 +123,19 @@ export function CarrinhoProvider({ children }) {
         0
     );
 
+    function gerarPedido(enderecoId, metodoPagamento) {
+
+        return {
+            enderecoId,
+            metodoPagamento,
+            itens: itens.map(item => ({
+                produtoId: item.id,
+                quantidade: item.quantidade
+            }))
+        };
+
+    }
+
     return (
         <CarrinhoContext.Provider
             value={{
@@ -135,7 +148,8 @@ export function CarrinhoProvider({ children }) {
                 alterarQuantidade,
                 limparCarrinho,
                 abrirCarrinho,
-                fecharCarrinho
+                fecharCarrinho,
+                gerarPedido
             }}
         >
             {children}

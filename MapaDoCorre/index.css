@@ -1,4 +1,15 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+    --font-display: 'Baloo 2', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    --color-ink: #2B2320;
+    --color-muted: #8A8272;
+}* 
+
+{
   scrollbar-width: none; /* Firefox */
 }
 

@@ -1,0 +1,77 @@
+.metodo-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    padding: 1.25rem;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(43, 35, 32, 0.06);
+}
+
+.metodo-pagamento h2 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--color-ink);
+    margin: 0 0 0.3rem;
+}
+
+.metodo-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    padding: 0.8rem 1rem 0.8rem 1.2rem;
+    border-radius: 8px;
+    background-color: #FAF7EE;
+
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.metodo-option::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 4px;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+}
+
+.metodo-option:hover {
+    background-color: #F3EEDD;
+}
+
+.metodo-option:has(input:checked) {
+    background-color: #FFF3E9;
+}
+
+.metodo-option:has(input:checked)::before {
+    background-color: var(--color-primary);
+}
+
+.metodo-option input[type="radio"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.metodo-option span {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-ink);
+}
+
+.metodo-option input:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
