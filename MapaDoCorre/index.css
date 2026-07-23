@@ -16,3 +16,24 @@
 *::-webkit-scrollbar {
   display: none; /* Chrome, Edge, Safari */
 }
+
+/* Reset global para remover espaço em cima */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#root {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.app-header {
+    border-bottom: none !important;
+    margin-top: 0 !important;
+}
