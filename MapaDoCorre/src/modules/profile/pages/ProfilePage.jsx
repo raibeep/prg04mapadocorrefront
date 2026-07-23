@@ -77,8 +77,8 @@ function ProfilePage() {
                         <button
                             className="client-edit-btn"
                             onClick={() => navigate("/editar-perfil")}>
-                                Editar perfil
-                            </button>
+                            Editar perfil
+                        </button>
                     </section>
 
                     <aside className="client-profile-sidebar">
@@ -89,14 +89,11 @@ function ProfilePage() {
                                 <div className="client-sidebar-cta">
                                     <h3>Seu perfil está incompleto!</h3>
                                     <p>Adicione uma foto e uma bio para que a comunidade te conheça melhor.</p>
-                                    <button className="client-sidebar-cta-btn">Completar Agora</button>
+                                    <button className="client-sidebar-cta-btn" onClick={() => navigate("/editar-perfil")}>
+                                        Completar Agora
+                                    </button>
                                 </div>
                             )}
-                        </div>
-
-                        <div className="client-sidebar-links">
-                            <a href="#" className="client-sidebar-link"><span>💬</span> Mostrar avaliações que eu escrevi</a>
-                            <a href="#" className="client-sidebar-link"><span>📍</span> Corres favoritos</a>
                         </div>
                     </aside>
                 </div>

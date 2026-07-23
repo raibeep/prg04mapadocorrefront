@@ -193,35 +193,6 @@
   filter: brightness(1.1);
 }
 
-.client-sidebar-links {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border-top: 1px solid #e0e0e0;
-  padding-top: 40px;
-}
-
-.client-sidebar-link {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  text-decoration: none;
-  color: var(--text-main);
-  font-size: 18px;
-  font-weight: 500;
-  transition: all 0.2s;
-  padding: 8px 0;
-}
-
-.client-sidebar-link span {
-  font-size: 24px;
-}
-
-.client-sidebar-link:hover {
-  color: var(--color-accent);
-  transform: translateX(8px);
-}
-
 .client-profile-loading {
   display: flex;
   flex-direction: column;
