@@ -14,7 +14,7 @@ function SidebarMenu({ aberto, onClose, tipoPerfil, nome, fotoPerfil, rotaPerfil
     ];
 
     const linksCliente = [
-        // vá adicionando aqui conforme criar novas telas do cliente
+       { label: "Meus Pedidos", icon: Package, route: "/meus-pedidos" }
     ];
 
     function handleLogout() {

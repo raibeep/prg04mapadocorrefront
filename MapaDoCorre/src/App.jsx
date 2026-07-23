@@ -19,6 +19,8 @@ import { CarrinhoProvider } from "./shared/context/CarrinhoContext";
 import CarrinhoDrawer from "./modules/carrinho/components/CarrinhoDrawer";
 import Checkout from "./modules/pagamento/pages/Checkout";
 import PedidoSucesso from "./modules/pagamento/pages/PedidoSucesso";
+import MeusPedidos from "./modules/pedido/pages/MeusPedidos";
+import EmpresarioPedidos from "./modules/pedido/pages/EmpresarioPedidos";
 
 function App() {
   return (
@@ -61,7 +63,7 @@ function App() {
             </RotaProtegida>
           }
         />
-        
+
         <Route
           path="/checkout"
           element={
@@ -81,13 +83,14 @@ function App() {
         />
 
         <Route
-          path="/minha-loja/:id"
+          path="/meus-pedidos"
           element={
-            <RotaProtegida perfil="EMPRESARIO">
-              <MinhaLoja />
+            <RotaProtegida perfil="CLIENTE">
+              <MeusPedidos />
             </RotaProtegida>
           }
         />
+
 
         {/* Empresário */}
         <Route path="/dashboard" element={
@@ -95,16 +98,19 @@ function App() {
             <Dashboard />
           </RotaProtegida>
         } />
+        
         <Route path="/cadastro-negocio" element={
           <RotaProtegida perfil="EMPRESARIO">
             <CadastroNegocio />
           </RotaProtegida>
         } />
+
         <Route path="/perfil-empresario" element={
           <RotaProtegida perfil="EMPRESARIO">
             <EmpresarioPage />
           </RotaProtegida>
         } />
+
         <Route
           path="/editar-perfil-empresario"
           element={
@@ -113,6 +119,7 @@ function App() {
             </RotaProtegida>
           }
         />
+
         <Route
           path="/editar-negocio/:id"
           element={
@@ -121,11 +128,21 @@ function App() {
             </RotaProtegida>
           }
         />
+
         <Route
-          path="/minha-loja"
+          path="/minha-loja/:id"
           element={
             <RotaProtegida perfil="EMPRESARIO">
               <MinhaLoja />
+            </RotaProtegida>
+          }
+        />
+
+        <Route
+          path="/pedidos"
+          element={
+            <RotaProtegida perfil="EMPRESARIO">
+              <EmpresarioPedidos />
             </RotaProtegida>
           }
         />
