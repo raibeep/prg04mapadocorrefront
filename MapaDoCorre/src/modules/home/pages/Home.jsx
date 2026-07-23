@@ -88,17 +88,13 @@ function Home() {
 
                 {categoriaSelecionada ? (
 
-                    <section className="secao-negocios">
-
-                        <h2 className="secao-titulo-grid">{categoriaSelecionada}</h2>
-
-                        <div className="home-grid">
+                    <div className="secao-negocios">
+                        <div className="secao-negocios-scroll">
                             {negociosFiltrados.map(negocio => (
                                 <BusinessCard key={negocio.id} negocio={negocio} />
                             ))}
                         </div>
-
-                    </section>
+                    </div>
 
                 ) : (
 
@@ -110,6 +106,7 @@ function Home() {
                     ))
 
                 )}
+
 
             </main>
 
