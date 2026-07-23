@@ -1,10 +1,9 @@
-/* CategoriaFiltro.css */
 .categoria-filtro {
     display: flex;
     gap: 12px;
     overflow-x: auto;
     padding: 20px 32px;
-    
+
     scrollbar-width: none;
 }
 
@@ -39,6 +38,25 @@
     color: #ffffff;
 }
 
+.categoria-chip.ativo svg {
+    color: #ffffff;
+}
+
 .categoria-icone {
-    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+}
+
+.categoria-icone svg {
+    width: 18px;
+    height: 18px;
+    fill: #5b6271;
+    transition: fill 0.2s;
+}
+
+.categoria-chip.ativo .categoria-icone svg {
+    fill: #ffffff;
 }
