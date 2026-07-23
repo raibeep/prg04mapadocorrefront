@@ -1,0 +1,248 @@
+.empresario-pedidos-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+}
+
+.titulo-area {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.titulo-area h1 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin: 0 0 0.4rem;
+}
+
+.titulo-area p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.empresario-pedidos-erro {
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+
+    background-color: #FDECEC;
+    border-left: 3px solid #D64545;
+
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #8A2C2C;
+}
+
+.pedido-vazio {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(43, 35, 32, 0.08);
+}
+
+.pedido-vazio h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.pedido-card {
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+
+    box-shadow: 0 4px 16px rgba(43, 35, 32, 0.08);
+}
+
+.pedido-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    border-bottom: 1.5px dashed #E8DFC0;
+    padding-bottom: 1.1rem;
+    margin-bottom: 1.25rem;
+}
+
+.pedido-topo h2 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin: 0 0 0.25rem;
+}
+
+.pedido-topo > div:first-child span {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+}
+
+.pedido-cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.pedido-cliente strong {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-ink);
+}
+
+.pedido-cliente span {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+}
+
+.pedido-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.item-linha {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    padding: 0.75rem;
+    border-radius: 10px;
+    background-color: #FAF7EE;
+}
+
+.item-linha-foto {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.item-linha-info {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.item-linha-nome {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-ink);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item-linha-detalhe {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+}
+
+.item-linha-acoes {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.btn-confirmar,
+.btn-recusar {
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1.1rem;
+
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+
+    transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-confirmar {
+    background-color: #1E8E4C;
+    color: #FFFFFF;
+}
+
+.btn-confirmar:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.btn-recusar {
+    background-color: #FFFFFF;
+    color: #C0392B;
+    border: 1.5px solid #F0C8C4;
+}
+
+.btn-recusar:hover:not(:disabled) {
+    background-color: #FDECEC;
+}
+
+.btn-confirmar:disabled,
+.btn-recusar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.item-status {
+    flex-shrink: 0;
+
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.item-status.confirmado {
+    background-color: #E8F5EC;
+    color: #1E8E4C;
+}
+
+.item-status.cancelado {
+    background-color: #FDECEC;
+    color: #C0392B;
+}
+
+@media (max-width: 640px) {
+
+    .pedido-topo {
+        flex-direction: column;
+    }
+
+    .pedido-cliente {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .item-linha {
+        flex-wrap: wrap;
+    }
+
+    .item-linha-acoes {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+}
