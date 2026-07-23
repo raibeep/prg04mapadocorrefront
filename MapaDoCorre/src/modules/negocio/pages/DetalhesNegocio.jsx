@@ -113,10 +113,6 @@ function DetalhesNegocio() {
 
                     <span className="info-pill">{negocio.categoriaNome}</span>
 
-                    <span className="info-pill">
-                        {negocio.quantidadePedidos ?? 0} pessoas já compraram aqui
-                    </span>
-
                 </div>
 
             </div>
